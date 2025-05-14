@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>👨‍💻 Experiences</h2>
+{% for item in experiences %}
+    <div>
+        <strong>{{ item.title }}</strong> at {{ item.company }} ({{ item.duration }})<br>
+        <em>{{ item.location }}</em>
+        <ul>
+            {% for d in item.details %}
+                <li>{{ d }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+
+<hr>
+
+<h2>🎓 Education</h2>
+{% for item in education %}
+    <p>
+        <strong>{{ item.degree }}</strong><br>
+        {{ item.institution }} ({{ item.duration }})
+    </p>
+{% endfor %}
+
+<hr>
+
+<h2>📜 Certificates</h2>
+<ul>
+    {% for cert in certificates %}
+        <li>{{ cert }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h2>📂 Projects</h2>
+{% for project in projects %}
+    <div>
+        <strong>{{ project.title }}</strong><br>
+        <p>{{ project.description }}</p>
+    </div>
+{% endfor %}
+
+<hr>
+
+<h2>🛠️ Skills</h2>
+
+<h3>Programming</h3>
+<ul>
+    {% for skill in skills.Programming %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Tools & Frameworks</h3>
+<ul>
+    {% for tool in skills.Tools %}
+        <li>{{ tool }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Languages</h3>
+<ul>
+    {% for lang in skills.Languages %}
+        <li>{{ lang.name }} ({{ lang.level }})</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h2>🌟 Areas of Interest</h2>
+<ul>
+    {% for area, level in areas_of_interest.items() %}
+        <li>{{ area }}: {{ level }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #f8f1e9;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-left a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-right a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+}
+
+.nav-right a:hover {
+    color: #222;
+}
+
+.profile-img {
+    width: 300px;
+    border-radius: 0;
+    margin: 20px 0;
+    float: right;
+}
+
+.team-img {
+    width: 200px;
+    margin: 20px 0;
+    display: block;
+}
+
+main {
+    padding: 40px;
+}
+
+.project {
+    margin-bottom: 40px; /* Added spacing between projects */
+}

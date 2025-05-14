@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📂 Embedded Projects</h2>
+{% for repo in repos %}
+    <div>
+        <h3>{{ repo.name }}</h3>
+        <img src="https://via.placeholder.com/600x400.jpg" alt="{{ repo.name }} Image">
+        <p>{{ repo.description or "No description provided." }}</p>
+        <strong>Language:</strong> {{ repo.language or "Not specified" }}<br>
+        <a href="{{ repo.html_url }}" target="_blank">View on GitHub</a>
+    </div>
+    <hr>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,131 @@
+{
+    "Goals": "As a senior engineer with 5+ years of experience, I aim to deepen my expertise in Embedded Systems, using my background in Microcontrollers, Computer Architecture, and FPGAs.",
+  
+    "Experience": [
+      {
+        "title": "Senior FPGA and Embedded Software Engineer",
+        "company": "b1 Engineering",
+        "duration": "Jan. 2025 – Now",
+        "location": "Munich, Germany",
+        "details": [
+          "FPGA design, memory organization, hardware integration",
+          "Projects: HENSOLDT Kalaetron RWR, Lufthansa PEGASUS"
+        ]
+      },
+      {
+        "title": "Embedded Software Engineer",
+        "company": "esc Aerospace GmbH",
+        "duration": "Apr. 2022 – Dec. 2024",
+        "location": "Munich, Germany",
+        "details": [
+          "Smoke detection system with ESP32",
+          "Drone image processing and SATCOM integration"
+        ]
+      }
+    ],
+  
+    "Education": [
+      {
+        "degree": "MSc in Electrical & Electronics Engineering",
+        "institution": "Hacettepe University",
+        "duration": "2020 – 2022"
+      },
+      {
+        "degree": "BSc in Electrical & Electronics Engineering",
+        "institution": "Hacettepe University",
+        "duration": "2014 – 2019"
+      }
+    ],
+
+    "Certificates": [
+      "Linux System Programming – University of Colorado",
+      "Computer Architecture – Princeton University",
+      "Drone Pilot License – EASA"
+    ],
+    
+    "Projects": [
+      {
+        "title": "FPGA-based Image Processing",
+        "description": "Developed a real-time image processing system using VHDL and Vivado."
+      },
+      {
+        "title": "IoT-based Smart Home System",
+        "description": "Designed an IoT system for home automation using ESP32 and Raspberry Pi."
+      },
+      {
+        "title": "Autonomous Drone Navigation",
+        "description": "Implemented a drone navigation system using SLAM and computer vision."
+      },
+      {
+        "title": "Embedded Linux System",
+        "description": "Built a custom Linux distribution for an industrial IoT device using Yocto."
+      }
+    ],
+
+    "Languages": [
+      {
+        "name": "Turkish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "C1"
+      },
+      {
+        "name": "German",
+        "level": "B1+"
+      }
+    ],
+    
+    "Areas of Interest":
+    {
+      "FPGA Design": "Expert",
+      "Embedded Systems": "Advanced",
+      "Microcontrollers": "Advanced",
+      "IoT": "Intermediate",
+      "Computer Architecture": "Intermediate",
+      "Real-time Systems": "Intermediate",
+      "Wireless Communication": "Intermediate"
+    },
+
+    "Programming Skills": 
+    [
+      "Python", "C/C++", "Embedded C", "Assembly", "VHDL", "HTML", "OOP", "UML/SysML", "Dart (Flutter)"
+    ],
+    
+    "Tools": [
+      "Raspberry Pi", "STM32", "ESP32", "MSP430", "NXP i.MX 8M SoC", "Arduino",
+      "ARM", "RISC-V", "Yocto", "FreeRTOS", "Vivado", "Quartus II",
+      "ModelSim", "QuestaSim", "Git", "Jira", "HDL Designer", "MATLAB", "STM32CubeIDE"
+    ],
+
+    "Journal Papers": [
+        {
+            "title": "Efficient FPGA-based Image Processing Algorithms",
+            "journal": "Journal of Embedded Systems",
+            "year": 2023,
+            "link": "https://example.com/journal-paper-1"
+        },
+        {
+            "title": "IoT Security in Embedded Systems",
+            "journal": "International Journal of IoT Research",
+            "year": 2022,
+            "link": "https://example.com/journal-paper-2"
+        }
+    ],
+
+    "Conference Proceedings": [
+        {
+            "title": "Real-time Embedded Systems for Autonomous Drones",
+            "conference": "Embedded World Conference",
+            "year": 2023,
+            "link": "https://example.com/conference-paper-1"
+        },
+        {
+            "title": "FPGA-based Neural Networks for Edge Computing",
+            "conference": "IEEE Embedded Systems Symposium",
+            "year": 2021,
+            "link": "https://example.com/conference-paper-2"
+        }
+    ]
+}

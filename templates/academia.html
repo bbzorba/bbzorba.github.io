@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📚 Academic Works</h2>
+<ul>
+    {% for work in academic_works %}
+        <li>
+            <strong>{{ work.title }}</strong><br>
+            {{ work.description }}<br>
+            <a href="{{ work.link }}" target="_blank">Read more</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

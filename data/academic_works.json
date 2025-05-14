@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Thesis: FPGA-based Real-Time Image Processing",
+        "description": "A master's thesis focusing on real-time image processing using FPGA technology, exploring optimization techniques for hardware acceleration.",
+        "link": "https://example.com/fpga-thesis"
+    },
+    {
+        "title": "Paper: IoT-based Smart Home Automation",
+        "description": "Published a paper on designing and implementing an IoT-based smart home system using ESP32 and Raspberry Pi.",
+        "link": "https://example.com/iot-paper"
+    },
+    {
+        "title": "Conference Presentation: Autonomous Drone Navigation",
+        "description": "Presented research on autonomous drone navigation using SLAM and computer vision at an international conference.",
+        "link": "https://example.com/drone-conference"
+    }
+]
