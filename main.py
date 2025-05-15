@@ -3,6 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import json
 import httpx
+import os
 
 app = FastAPI()
 
@@ -71,3 +72,8 @@ async def embedded_world(request: Request):
 @app.get("/sports")
 def sports(request: Request):
     return templates.TemplateResponse("sports.html", {"request": request})
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Default to 8000 if PORT is not set
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
