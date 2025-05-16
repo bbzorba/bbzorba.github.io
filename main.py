@@ -7,11 +7,19 @@ import httpx
 import smtplib
 from email.message import EmailMessage
 import os
+import logging
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+@app.on_event("startup")
+async def startup_event():
+    logger.info("Starting FastAPI app")
 
 # Load CV and blog data
 with open("data/cv_data.json", "r", encoding="utf-8") as f:

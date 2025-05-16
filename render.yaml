@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: my-fastapi-app
-    env: python
-    buildCommand: ""
-    startCommand: python -m uvicorn main:app --reload
-    plan: free
