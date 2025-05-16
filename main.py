@@ -8,6 +8,7 @@ import smtplib
 from email.message import EmailMessage
 import os
 import logging
+import uvicorn
 
 app = FastAPI()
 
@@ -158,9 +159,5 @@ async def fcbayern_basketball(request: Request):
     return templates.TemplateResponse("fcbayern_basketball.html", {"request": request})
 
 if __name__ == "__main__":
-    import uvicorn
-    import os
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
-    logger.info(f"Server started at http://localhost:{port}")
-    logger.info("Application shutdown initiated.")
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False, log_level="debug", debug=True,
+                workers=1, limit_concurrency=1, limit_max_requests=1)
