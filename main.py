@@ -24,8 +24,6 @@ def homepage(request: Request):
 
 @app.get("/resume")
 def resume(request: Request):
-    with open("data/cv_data.json", "r", encoding="utf-8") as f:
-        academic_works = json.load(f)
     return templates.TemplateResponse("resume.html", {
         "request": request,
         "experiences": cv_data.get("Experience", []),
