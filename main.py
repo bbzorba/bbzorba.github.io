@@ -4,10 +4,9 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse, HTMLResponse
 import json
 import httpx
-import os
 import smtplib
 from email.message import EmailMessage
-import uvicorn
+import os
 
 app = FastAPI()
 
@@ -151,5 +150,7 @@ async def fcbayern_basketball(request: Request):
     return templates.TemplateResponse("fcbayern_basketball.html", {"request": request})
 
 if __name__ == "__main__":
+    import uvicorn
+    import os
     port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
