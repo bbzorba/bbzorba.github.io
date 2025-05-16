@@ -1,11 +1,208 @@
-[
+{
+  "lived": [
+    {
+      "title": "Turkey 🇹🇷 – A Cultural Mosaic",
+      "content": "Explored Istanbul's bazaars, Cappadocia's fairy chimneys, and Ephesus' ruins. A blend of history and modernity!"
+    },
+    {
+      "title": "Germany 🇩🇪 – Efficiency and Engineering",
+      "content": "Visited Berlin's museums, Munich's beer gardens, and the Black Forest. Prost to the land of poets and thinkers!"
+    },
+    {
+      "title": "Poland 🇵🇱 – History and Heritage",
+      "content": "Explored Krakow's history and Warsaw's resilience. A journey through time!"
+    }
+  ],
+  "visited": [
     {
       "title": "France 🇫🇷 – Wine, Cheese, and Lavender",
       "content": "I spent a week in Provence enjoying the vineyards and coastlines. Highlight: Avignon's papal palace!"
     },
     {
-      "title": "Japan 🇯🇵 – Tech meets Tradition",
-      "content": "Tokyo was a neon dream, Kyoto a time machine. I coded in a manga café and meditated in a bamboo forest!"
+      "title": "Italy 🇮🇹 – Pasta, Pizza, and Passion",
+      "content": "From Rome's ruins to Venice's canals, I indulged in gelato and learned to make pasta. Ciao, bella!"
+    },
+    {
+      "title": "Spain 🇪🇸 – Flamenco and Fiesta",
+      "content": "Danced in Seville, savored tapas in Barcelona, and relaxed on Costa del Sol. Olé to the vibrant culture!"
+    },
+    {
+      "title": "Greece 🇬🇷 – Myth and Mediterranean",
+      "content": "Explored Athens' ancient ruins, Santorini's sunsets, and Crete's beaches. Opa to the land of gods!"
+    },
+    {
+      "title": "Switzerland 🇨🇭 – Alps and Chocolate",
+      "content": "Hiked in the Swiss Alps, savored fondue, and enjoyed Zurich's lakeside. A slice of paradise!"
+    },
+    {
+      "title": "Netherlands 🇳🇱 – Canals and Culture",
+      "content": "Rode bikes in Amsterdam, visited tulip fields, and explored windmills. A colorful journey!"
+    },
+    {
+      "title": "Portugal 🇵🇹 – Surf and Sun",
+      "content": "Surfing in Lisbon, exploring Porto's wine cellars, and relaxing on Algarve's beaches. A sun-soaked adventure!"
+    },
+    {
+      "title": "Belgium 🇧🇪 – Chocolate and Comics",
+      "content": "Indulged in Belgian chocolate, explored Brussels' architecture, and enjoyed Bruges' canals. A sweet escape!"
+    },
+    {
+      "title": "Austria 🇦🇹 – Music and Mountains",
+      "content": "Visited Vienna's opera houses, Salzburg's birthplace of Mozart, and Innsbruck's alpine beauty. A harmonious experience!"
+    },
+    {
+      "title": "Czech Republic 🇨🇿 – Castles and Culture",
+      "content": "Explored Prague's historic sites, tasted local beers, and enjoyed the Bohemian countryside. A fairy tale come true!"
+    },
+    {
+      "title": "Finland 🇫🇮 – Nature and Northern Lights",
+      "content": "Witnessed the Northern Lights, explored Helsinki's design scene, and enjoyed sauna culture. A winter wonderland!"
+    },
+    {
+      "title": "Norway 🇳🇴 – Fjords and Fjells",
+      "content": "Explored Oslo's museums, hiked in the fjords, and enjoyed the midnight sun. A breathtaking experience!"
+    },
+    {
+      "title": "Denmark 🇩🇰 – Hygge and History",
+      "content": "Visited Copenhagen's castles, enjoyed Danish pastries, and explored Viking history. A cozy adventure!"
+    },
+    {
+      "title": "Sweden 🇸🇪 – Innovation and Nature",
+      "content": "Explored Stockholm's archipelago, enjoyed fika, and learned about Swedish design. A blend of modernity and tradition!"
+    },
+    {
+      "title": "Hungary 🇭🇺 – Thermal Baths and Tradition",
+      "content": "Visited Budapest's thermal baths, explored the Danube River, and enjoyed local cuisine. A relaxing getaway!"
+    },
+    {
+      "title": "Croatia 🇭🇷 – Adriatic Adventures",
+      "content": "Explored Dubrovnik's walls, sailed in Split, and relaxed on Hvar's beaches. A coastal paradise!"
+    },
+    {
+      "title": "Slovenia 🇸🇮 – Lakes and Landscapes",
+      "content": "Visited Lake Bled, explored Ljubljana's charm, and enjoyed Triglav National Park. A hidden gem!"
+    },
+    {
+      "title": "Bulgaria 🇧🇬 – Mountains and Monasteries",
+      "content": "Explored Sofia's history, Rila Monastery, and the Black Sea coast. A blend of culture and nature!"
+    },
+    {
+      "title": "Serbia 🇷🇸 – Culture and Cuisine",
+      "content": "Visited Belgrade's nightlife, Novi Sad's festivals, and enjoyed local dishes. A vibrant experience!"
+    },
+    {
+      "title": "Georgia 🇬🇪 – Mountains and Melodies",
+      "content": "Explored Tbilisi's architecture, tasted local wines, and enjoyed the Caucasus Mountains. A cultural fusion!"
+    },
+    {
+      "title": "Azerbaijan 🇦🇿 – Modernity and Mountains",
+      "content": "Explored Baku's architecture, Gobustan's petroglyphs, and the Caspian Sea. A unique blend of cultures!"
+    },
+    {
+      "title": "Latvia 🇱🇻 – Baltic Beauty",
+      "content": "Explored Riga's architecture, Jurmala's beaches, and Gauja National Park. A hidden treasure!"
+    },
+    {
+      "title": "Lithuania 🇱🇹 – History and Harmony",
+      "content": "Visited Vilnius' Old Town, Trakai Castle, and the Curonian Spit. A blend of nature and culture!"
+    },
+    {
+      "title": "Estonia 🇪🇪 – Digital and Diverse",
+      "content": "Explored Tallinn's medieval charm, Saaremaa Island, and Lahemaa National Park. A digital wonderland!"
+    },
+    {
+      "title": "Bosnia and Herzegovina 🇧🇦 – History and Hospitality",
+      "content": "Visited Sarajevo's history, Mostar's bridge, and the natural beauty of the country. A warm welcome!"
+    },
+    {
+      "title": "Montenegro 🇲🇪 – Mountains and Mediterranean",
+      "content": "Explored Kotor's fjords, Budva's beaches, and Durmitor National Park. A stunning landscape!"
+    },
+    {
+      "title": "North Macedonia 🇲🇰 – Lakes and Legends",
+      "content": "Explored Skopje's history, Ohrid's lake, and the beauty of the countryside. A blend of cultures!"
+    },
+    {
+      "title": "Albania 🇦🇱 – Beaches and Breathtaking Views",
+      "content": "Visited Tirana's history, explored the Albanian Riviera, and enjoyed local cuisine. A coastal paradise!"
+    },
+    {
+      "title": "Liechtenstein 🇱🇮 – Alpine Adventure",
+      "content": "Visited Vaduz's castle, hiked in the Alps, and enjoyed local wines. A small but stunning country!"
+    },
+    {
+      "title": "San Marino 🇸🇲 – Ancient and Authentic",
+      "content": "Explored San Marino's towers, enjoyed local cuisine, and took in the views. A historical gem!"
+    },
+    {
+      "title": "Vatican City 🇻🇦 – Spiritual and Stunning",
+      "content": "Explored St. Peter's Basilica, the Sistine Chapel, and Vatican Museums. A spiritual journey!"
+    },
+    {
+      "title": "Luxembourg 🇱🇺 – Tiny but Terrific",
+      "content": "Explored Luxembourg City's history, enjoyed local cuisine, and visited the Ardennes. A hidden gem!"
+    },
+    {
+      "title": "Slovakia 🇸🇰 – Castles and Culture",
+      "content": "Visited Bratislava's Old Town, explored High Tatras, and enjoyed local cuisine. A blend of history and nature!"
+    },
+    {
+      "title": "Armenia 🇦🇲 – Ancient and Artistic",
+      "content": "Visited land's beauty, Mountain Ararat and an old Nuclear Power Plant! A blend of ancient and modern."
+    },
+    {
+      "title": "United States 🇺🇸 – Diversity and Dreams",
+      "content": "From New York's skyline to Florida's beaches, I explored national parks and cities. A land of opportunities!"
+    }
+  ],
+  "want_to_go": [
+    {
+      "title": "Iceland 🇮🇸 – Land of Fire and Ice",
+      "content": "Want to witness geysers, waterfalls, and the Blue Lagoon. A natural wonderland!"
+    },
+    {
+      "title": "Ukraine 🇺🇦 – Resilience and Richness",
+      "content": "Hope to explore Kyiv's history, Lviv's culture, and the Carpathian Mountains. A testament to strength!"
+    },
+    {
+      "title": "Belarus 🇧🇾 – Nature and Nostalgia",
+      "content": "Would like to visit Minsk's parks, Brest Hero-Fortress, and the Belovezhskaya Pushcha. A journey through time!"
+    },
+    {
+      "title": "Moldova 🇲🇩 – Wine and Wonders",
+      "content": "Plan to visit Chisinau's wineries, explore Orheiul Vechi, and enjoy local cuisine. A hidden treasure!"
+    },
+    {
+      "title": "Romania 🇷🇴 – Castles and Countryside",
+      "content": "Wish to visit Transylvania's castles, explore Bucharest's architecture, and enjoy the Carpathian Mountains. A mystical experience!"
+    },
+    {
+      "title": "Ireland 🇮🇪 – Green Hills and History",
+      "content": "Dream of visiting Dublin's literary pubs, exploring the Cliffs of Moher, and enjoying Galway's music scene. A land of legends!"
+    },
+    {
+      "title": "Scotland 🇬🇧 – Highlands and Heritage",
+      "content": "Want to explore Edinburgh's castles, hike in the Highlands, and savor whisky. A rugged beauty!"
+    },
+    {
+      "title": "Monaco 🇲🇨 – Luxury and Leisure",
+      "content": "Would love to visit Monte Carlo's casinos, enjoy the Grand Prix, and relax on the beaches. A glamorous getaway!"
+    },
+    {
+      "title": "Malta 🇲🇹 – History and Hospitality",
+      "content": "Plan to explore Valletta's history, Mdina's charm, and the Blue Lagoon. A blend of cultures!"
+    },
+    {
+      "title": "Cyprus 🇨🇾 – Sun and Serenity",
+      "content": "Wish to visit Nicosia's history, explore the Troodos Mountains, and enjoy the beaches. A Mediterranean escape!"
+    },
+    {
+      "title": "Andorra 🇦🇩 – Pyrenees and Peace",
+      "content": "Would like to explore Andorra la Vella's charm, hike in the Pyrenees, and enjoy local cuisine. A hidden gem!"
+    },
+    {
+      "title": "Kosovo 🇽🇰 – Emerging and Enigmatic",
+      "content": "Hope to visit Pristina's history, explore the Rugova Canyon, and enjoy local cuisine. A hidden gem!"
     }
   ]
-  
+}

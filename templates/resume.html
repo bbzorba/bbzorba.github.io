@@ -35,13 +35,30 @@
 
 <hr>
 
-<h2>📂 Projects</h2>
-{% for project in projects %}
-    <div>
-        <strong>{{ project.title }}</strong><br>
-        <p>{{ project.description }}</p>
-    </div>
-{% endfor %}
+<h2>📖 Thesis & Academic Work</h2>
+<ul>
+    {% for work in academic_works %}
+        <li>
+            <strong>{{ work.title }}</strong><br>
+            {{ work.description }}<br>
+            <a href="{{ work.link }}" target="_blank">Read more</a>
+        </li>
+    {% endfor %}
+    {% for paper in journal_papers %}
+        <li>
+            <strong>{{ paper.title }}</strong><br>
+            {{ paper.journal }} ({{ paper.year }})<br>
+            <a href="{{ paper.link }}" target="_blank">Read more</a>
+        </li>
+    {% endfor %}
+    {% for conf in conference_proceedings %}
+        <li>
+            <strong>{{ conf.title }}</strong><br>
+            {{ conf.conference }} ({{ conf.year }})<br>
+            <a href="{{ conf.link }}" target="_blank">Read more</a>
+        </li>
+    {% endfor %}
+</ul>
 
 <hr>
 

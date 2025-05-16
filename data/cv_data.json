@@ -9,7 +9,7 @@
         "location": "Munich, Germany",
         "details": [
           "FPGA design, memory organization, hardware integration",
-          "Projects: HENSOLDT Kalaetron RWR, Lufthansa PEGASUS"
+          "Projects: Power Filter Digital Unit"
         ]
       },
       {
@@ -18,8 +18,53 @@
         "duration": "Apr. 2022 – Dec. 2024",
         "location": "Munich, Germany",
         "details": [
-          "Smoke detection system with ESP32",
-          "Drone image processing and SATCOM integration"
+          "AI-assisted smoke detection system and LoRa-based communication system",
+          "Drone image processing with Video, Stereo and Thermal Cameras and SATCOM integration",
+          "Sensor network of a firefighter drone",
+          "Automated drone landing on a visual marker",
+          "Detect-and-Avoid System using a 2D LiDAR",
+          "Drone swarm communication and control system",
+          "Channel switching unit for a drone communication system"
+        ]
+      },
+      {
+        "title": "Systems Design Engineer",
+        "company": "ASELSAN Inc.",
+        "duration": "Sep. 2019 – March. 2022",
+        "location": "Ankara, Turkey",
+        "details": [
+          "crypto accelerator IP for a soft core processor",
+          "Hardware and Software-based encryption algorithms and RNGs",
+          "Data link communication projects",
+          "Ethereum-based decentralized digital currency",
+          "hardware encrypted USB device"
+        ]
+      },
+            {
+        "title": "Part-Time Student Assistant",
+        "company": "Hacettepe University",
+        "duration": "Feb 2019 – June 2019",
+        "location": "Ankara, Turkey",
+        "details": [
+          "Emu8086 with x86 Assembly language"
+        ]
+      },
+      {
+        "title": "Summer Intern (Aeronautical Informatics Engineer)",
+        "company": "Technical University of Clausthal",
+        "duration": "June 2018 – July 2018",
+        "location": "Clausthal-Zellerfeld, Germany",
+        "details": [
+          "Quadcopter embedded software and flight controller development"
+        ]
+      },
+      {
+        "title": "Summer Intern (Digital Design Engineer)",
+        "company": "Meteksan Defense",
+        "duration": "June 2017 – July 2017",
+        "location": "Ankara, Turkey",
+        "details": [
+          "FPGA-based video processing system"
         ]
       }
     ],
@@ -34,32 +79,29 @@
         "degree": "BSc in Electrical & Electronics Engineering",
         "institution": "Hacettepe University",
         "duration": "2014 – 2019"
+      },
+      {
+        "degree": "Erasmus Exchange Programme in Electronics and Information Technologies",
+        "institution": "Warsaw University of Technology",
+        "duration": "2015 – 2016"
+      },
+      {
+        "degree": "High School Diploma",
+        "institution": "TED Ankara College Private High School",
+        "duration": "2010 – 2014"
       }
     ],
 
     "Certificates": [
       "Linux System Programming – University of Colorado",
       "Computer Architecture – Princeton University",
-      "Drone Pilot License – EASA"
-    ],
-    
-    "Projects": [
-      {
-        "title": "FPGA-based Image Processing",
-        "description": "Developed a real-time image processing system using VHDL and Vivado."
-      },
-      {
-        "title": "IoT-based Smart Home System",
-        "description": "Designed an IoT system for home automation using ESP32 and Raspberry Pi."
-      },
-      {
-        "title": "Autonomous Drone Navigation",
-        "description": "Implemented a drone navigation system using SLAM and computer vision."
-      },
-      {
-        "title": "Embedded Linux System",
-        "description": "Built a custom Linux distribution for an industrial IoT device using Yocto."
-      }
+      "Drone Pilot License – EASA",
+      "Driver’s License - Class-B German driver’s license",
+      "Leben in Deutschland - Integration to Germany exam",
+      "IWBIS ’22 - Best session presenter award",
+      "Doulos - Comprehensive VHDL certificate",
+      "Ayrotek - Blockchain Technologies certificate",
+      "Tekim Akademi - Systems Engineering certificate"
     ],
 
     "Languages": [
@@ -80,11 +122,14 @@
     "Areas of Interest":
     {
       "FPGA Design": "Expert",
-      "Embedded Systems": "Advanced",
+      "Embedded Systems": "Expert",
+      "Computer Architecture": "Advanced",
       "Microcontrollers": "Advanced",
-      "IoT": "Intermediate",
-      "Computer Architecture": "Intermediate",
+      "Applied Cryptography": "Advanced",
+      "Operating Systems": "Advanced",
+      "IoT": "Advanced",
       "Real-time Systems": "Intermediate",
+      "Hardware Accelerators": "Intermediate",
       "Wireless Communication": "Intermediate"
     },
 
@@ -101,31 +146,31 @@
 
     "Journal Papers": [
         {
-            "title": "Efficient FPGA-based Image Processing Algorithms",
-            "journal": "Journal of Embedded Systems",
-            "year": 2023,
-            "link": "https://example.com/journal-paper-1"
-        },
-        {
-            "title": "IoT Security in Embedded Systems",
-            "journal": "International Journal of IoT Research",
+            "title": "Enhancing the Capabilities of Mobile Backhaul: A User Plane Perspective",
+            "journal": "Journal of Network & Systems Management",
             "year": 2022,
-            "link": "https://example.com/journal-paper-2"
+            "link": "https://link.springer.com/article/10.1007/s10922-022-09646-8"
         }
     ],
 
     "Conference Proceedings": [
         {
-            "title": "Real-time Embedded Systems for Autonomous Drones",
-            "conference": "Embedded World Conference",
-            "year": 2023,
-            "link": "https://example.com/conference-paper-1"
+            "title": "Software Implementation Performances of Block Ciphers: A Systematic Literature Review",
+            "conference": "7th International Workshop on Big Data and Information Security (IWBIS)",
+            "year": 2022,
+            "link": "https://ieeexplore.ieee.org/document/9924700"
         },
         {
-            "title": "FPGA-based Neural Networks for Edge Computing",
-            "conference": "IEEE Embedded Systems Symposium",
-            "year": 2021,
-            "link": "https://example.com/conference-paper-2"
+            "title": "Network Coding Aware User Plane for Mobile Networks",
+            "conference": "16th International Conference on Network and Service Management (CNSM)",
+            "year": 2020,
+            "link": "https://ieeexplore.ieee.org/document/9269117"
+        },
+        {
+            "title": "Switches: A Scalable Unidirectional Payment Channel Model in Ethereum",
+            "conference": "6th High Performance Computing Conference (BASARIM)",
+            "year": 2020,
+            "link": "https://www.researchgate.net/profile/Murat-Aydos-2/publication/346021637_Switches_A_Scalable_Unidirectional_Payment_Channel_Model_in_Ethereum/links/5fb663e4299bf104cf5b0f4a/Switches-A-Scalable-Unidirectional-Payment-Channel-Model-in-Ethereum.pdf"
         }
     ]
 }

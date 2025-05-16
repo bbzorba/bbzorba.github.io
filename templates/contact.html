@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📬 Contact Me</h2>
+
+<div class="contact-icons" style="font-size:2rem; margin-bottom: 1.5rem;">
+    <a href="mailto:bbzorba@hotmail.com" title="E-mail" target="_blank" style="margin-right: 18px;">
+        <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/bbzorba/" title="LinkedIn" target="_blank" style="margin-right: 18px;">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/bbzorba" title="GitHub" target="_blank" style="margin-right: 18px;">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.instagram.com/bbzorba/" title="Instagram" target="_blank" style="margin-right: 18px;">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://maps.google.com/?q=Munich,Germany" title="Location: Munich, Germany" target="_blank" style="margin-right: 18px;">
+        <i class="fas fa-map-marker-alt"></i>
+    </a>
+</div>
+
+<p>
+    <strong>Personal E-mail:</strong> bbzorba@hotmail.com<br>
+    <strong>Work E-mail:</strong> baris.zorba@b1-es.com<br>
+    <strong>Location:</strong> Munich, Germany
+</p>
+
+<h3>Send me a message</h3>
+{% if sent %}
+    <div style="color: green; font-weight: bold;">Your message has been sent! Thank you.</div>
+{% elif error %}
+    <div style="color: red; font-weight: bold;">Error: {{ error }}</div>
+{% endif %}
+<form method="post" action="/contact" style="max-width:400px;">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required style="width:100%;"><br>
+    <label for="email">E-mail:</label><br>
+    <input type="email" id="email" name="email" required style="width:100%;"><br>
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="5" required style="width:100%;"></textarea><br>
+    <button type="submit" style="margin-top:10px;">Send</button>
+</form>
+
+<h3>My Workplace</h3>
+<iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.137759033398!2d11.52926507699944!3d48.09517997122032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479dded4c9ea5d6f%3A0x60a217bd0d7428ff!2sb1%20Engineering%20Solutions%20GmbH%20%26%20Co.%20KG!5e0!3m2!1sen!2sde!4v1718030000000!5m2!1sen!2sde"
+    width="600"
+    height="350"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+<style>
+.contact-icons a {
+    color: #222;
+    transition: color 0.2s;
+}
+.contact-icons a:hover {
+    color: #0077b5;
+}
+</style>
+
+{% endblock %}

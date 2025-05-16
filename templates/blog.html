@@ -1,11 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>My Travel Blog ✈️</h2>
-{% for post in posts %}
+<h1>My Travel Blog ✈️</h1>
+
+<h2 style="margin-top: 2.5rem;">Lived</h2>
+{% for post in posts.lived %}
     <div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.content }}</p>
+        <h4>{{ post["title"] }}</h4>
+        <p>{{ post["content"] }}</p>
         <hr>
     </div>
 {% endfor %}
+
+<h2 style="margin-top: 2.5rem;">Visited</h2>
+{% for post in posts.visited %}
+    <div>
+        <h4>{{ post["title"] }}</h4>
+        <p>{{ post["content"] }}</p>
+        <hr>
+    </div>
+{% endfor %}
+
+<h2 style="margin-top: 2.5rem;">Want to Go</h2>
+{% for post in posts.want_to_go %}
+    <div>
+        <h4>{{ post["title"] }}</h4>
+        <p>{{ post["content"] }}</p>
+        <hr>
+    </div>
+{% endfor %}
+
 {% endblock %}

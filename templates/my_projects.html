@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>📂 Embedded Projects</h2>
+<h2>📂 My Projects</h2>
 {% for repo in repos %}
     <div>
         <h3>{{ repo.name }}</h3>
@@ -9,6 +9,7 @@
         <p>{{ repo.description or "No description provided." }}</p>
         <strong>Language:</strong> {{ repo.language or "Not specified" }}<br>
         <a href="{{ repo.html_url }}" target="_blank">View on GitHub</a>
+        <div style="margin-bottom: 2.5rem;"></div>
     </div>
     <hr>
 {% endfor %}
