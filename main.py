@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 @app.on_event("startup")
 async def startup_event():
-    logger.info("Starting FastAPI app")
+    logger.info("Application startup initiated.")
 
 # Load CV and blog data
 with open("data/cv_data.json", "r", encoding="utf-8") as f:
@@ -161,4 +161,6 @@ if __name__ == "__main__":
     import uvicorn
     import os
     port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+    logger.info(f"Server started at http://localhost:{port}")
+    logger.info("Application shutdown initiated.")
