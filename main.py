@@ -159,5 +159,4 @@ async def fcbayern_basketball(request: Request):
     return templates.TemplateResponse("fcbayern_basketball.html", {"request": request})
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False, log_level="debug", debug=True,
-                workers=1, limit_concurrency=1, limit_max_requests=1)
+    uvicorn.run("main:app", host="0.0.0.0", port=80, reload=True)
