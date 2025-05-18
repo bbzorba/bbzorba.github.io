@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.responses import RedirectResponse, HTMLResponse, FileResponse
 import json
 import httpx
 import smtplib
@@ -29,6 +29,10 @@ with open("data/cv_data.json", "r", encoding="utf-8") as f:
 @app.get("/")
 def homepage(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    return FileResponse("static/favicon.ico")
 
 @app.get("/resume")
 def resume(request: Request):
@@ -69,7 +73,6 @@ async def travel_blog(request: Request):
 async def contact_get(request: Request):
     return templates.TemplateResponse("contact.html", {"request": request, "sent": False, "error": None})
 
-'''
 @app.post("/contact")
 async def contact_post(
     request: Request,
@@ -84,30 +87,34 @@ async def contact_post(
         error = "Please fill in all fields."
     else:
         try:
-            # Email configuration
             smtp_server = "smtp-mail.outlook.com"
             smtp_port = 587
-            smtp_user = "bbzorba@hotmail.com"  # Your email address
-            smtp_password = os.environ.get("MAIL_PASSWORD")  # Set this env variable for security
+            smtp_user = "bbzorba@hotmail.com"
+            smtp_password = os.environ.get("MAIL_PASSWORD")
 
-            msg = EmailMessage()
-            msg.set_content(
-                f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
-                "plain",
-                "utf-8"
-            )
-            msg["Subject"] = "Contact Form Message from Website"
-            msg["From"] = smtp_user
-            msg["To"] = smtp_user
+            if not smtp_password:
+                logger.error("MAIL_PASSWORD environment variable is not set.")
+                error = "Email service misconfigured. Please try again later."
+            else:
+                msg = EmailMessage()
+                msg.set_content(
+                    f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
+                    "plain",
+                    "utf-8"
+                )
+                msg["Subject"] = "Contact Form Message from Website"
+                msg["From"] = smtp_user
+                msg["To"] = smtp_user
 
-            with smtplib.SMTP(smtp_server, smtp_port) as server:
-                server.starttls()
-                server.login(smtp_user, smtp_password)
-                server.send_message(msg)
+                with smtplib.SMTP(smtp_server, smtp_port) as server:
+                    server.starttls()
+                    server.login(smtp_user, smtp_password)
+                    server.send_message(msg)
 
-            sent = True
-            error = None
+                sent = True
+
         except Exception as e:
+            logger.exception("Failed to send email via contact form.")
             error = "Failed to send message. Please try again later."
 
     return templates.TemplateResponse(
@@ -118,7 +125,10 @@ async def contact_post(
             "error": error
         }
     )
-'''
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 
 @app.get("/github")
 async def github(request: Request):
