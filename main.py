@@ -69,6 +69,7 @@ async def travel_blog(request: Request):
 async def contact_get(request: Request):
     return templates.TemplateResponse("contact.html", {"request": request, "sent": False, "error": None})
 
+'''
 @app.post("/contact")
 async def contact_post(
     request: Request,
@@ -117,6 +118,7 @@ async def contact_post(
             "error": error
         }
     )
+'''
 
 @app.get("/github")
 async def github(request: Request):
