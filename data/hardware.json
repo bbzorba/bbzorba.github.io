@@ -1,0 +1,167 @@
+{
+  "intro": "The chips I build things with, at home and at work. Ratings are my own, for embedded and drone-related work: how pleasant they are to develop for, how capable they are, and how well the ecosystem holds up.",
+  "groups": [
+    {
+      "name": "Microcontrollers (MCUs)",
+      "blurb": "Bare-metal and RTOS targets: flight controllers, sensor nodes, radios.",
+      "chips": [
+        {
+          "name": "STM32H7",
+          "vendor": "STMicroelectronics",
+          "core": "Arm Cortex-M7 up to 480 MHz (double-precision FPU), up to 2 MB flash, ~1 MB RAM",
+          "used_for": "Flight-controller firmware and bootloader work (PX4), Nucleo sensor applications",
+          "rating": 4.5,
+          "pros": ["The flight-controller workhorse (Pixhawk 6X/6C class)", "Lots of compute and DSP headroom for estimation and control loops", "Rich peripherals: FDCAN, many UARTs/SPIs, SDMMC, Ethernet"],
+          "cons": ["Cache, MPU and DMA coherency take care to get right", "Complex clock and power-domain setup", "Higher power and price than mainstream parts"]
+        },
+        {
+          "name": "STM32F4",
+          "vendor": "STMicroelectronics",
+          "core": "Arm Cortex-M4F at 168–180 MHz, up to 2 MB flash",
+          "used_for": "Bare-metal drivers, Zephyr projects and C++ sensor applications on the F4 Discovery",
+          "rating": 4,
+          "pros": ["Mature and extremely well documented", "Huge amount of examples and community knowledge", "Great for learning registers, DMA and interrupts bare-metal"],
+          "cons": ["Showing its age next to M7/M33 parts", "Limited RAM for heavier stacks", "No modern security features"]
+        },
+        {
+          "name": "STM32C5",
+          "vendor": "STMicroelectronics",
+          "core": "Arm Cortex-M33 up to 144 MHz, 128 KB–1 MB flash, up to 256 KB SRAM (launched 2026)",
+          "used_for": "Object-oriented security projects and Zephyr real-time projects on the NUCLEO board",
+          "rating": 4,
+          "pros": ["Cortex-M33 performance at entry-level cost", "Memory protection features, TRNG and readout protection", "Same STM32 tooling (CubeIDE, Zephyr) as the rest of the family"],
+          "cons": ["Brand-new: fewer examples and community answers", "Zephyr and middleware support still catching up", "Peripheral set differs per variant, so check carefully"]
+        },
+        {
+          "name": "ESP32-C6",
+          "vendor": "Espressif",
+          "core": "RISC-V HP core at 160 MHz + RISC-V LP core, 512 KB SRAM; Wi-Fi 6, BLE 5, 802.15.4 (Thread/Zigbee)",
+          "used_for": "The Home Hub behind the Live Lab page (Zephyr, HTTP server, MQTT)",
+          "rating": 4,
+          "pros": ["Wi-Fi 6, BLE and Thread/Zigbee in one cheap chip", "Open RISC-V cores, good Zephyr and ESP-IDF support", "Low-power core for always-on tasks"],
+          "cons": ["Wi-Fi stack is a closed binary blob", "Zephyr Wi-Fi driver still maturing", "No camera interface, single application core"]
+        },
+        {
+          "name": "ESP32 (classic)",
+          "vendor": "Espressif",
+          "core": "Dual-core Xtensa LX6 at 240 MHz, Wi-Fi + Bluetooth Classic/BLE",
+          "used_for": "Sensor applications, MicroPython and PlatformIO experiments, BME688 AI projects",
+          "rating": 3.5,
+          "pros": ["Enormous community (Arduino, MicroPython, PlatformIO)", "Two cores and plenty of peripherals for the price", "Fastest way from idea to a connected prototype"],
+          "cons": ["Xtensa toolchain instead of Arm/RISC-V", "Higher idle power than newer parts", "Being superseded by the C- and S-series"]
+        },
+        {
+          "name": "nRF54L15",
+          "vendor": "Nordic Semiconductor",
+          "core": "Arm Cortex-M33 at 128 MHz + RISC-V coprocessor, 1.5 MB NVM, 256 KB RAM; BLE, Thread, Zigbee, Matter",
+          "used_for": "Bluetooth Low Energy projects with Zephyr (nRF Connect SDK)",
+          "rating": 4.5,
+          "pros": ["Best-in-class BLE radio and low power", "Zephyr is the first-class SDK", "Excellent documentation and tools (nRF Connect)"],
+          "cons": ["nRF Connect SDK has a real learning curve", "Little support outside the Zephyr ecosystem", "New silicon, so watch the errata"]
+        },
+        {
+          "name": "Renesas RX140",
+          "vendor": "Renesas",
+          "core": "32-bit RXv2 CPU at 48 MHz, low-power, capacitive touch (CTSU2)",
+          "used_for": "Low-power Zephyr applications",
+          "rating": 3,
+          "pros": ["Very low active and standby current", "Robust industrial-grade parts with long availability", "Built-in capacitive touch sensing"],
+          "cons": ["Proprietary RX architecture and toolchains", "Small community compared to Arm parts", "Zephyr support is recent"]
+        },
+        {
+          "name": "MSP430",
+          "vendor": "Texas Instruments",
+          "core": "16-bit RISC, FRAM-based (e.g. MSP430FR4311)",
+          "used_for": "LCD controller firmware; central-controller firmware of an encrypted USB device",
+          "rating": 3,
+          "pros": ["Microamp-level power consumption", "FRAM: fast, low-power, high-endurance non-volatile memory", "Simple and predictable"],
+          "cons": ["16-bit with limited performance and memory", "Ecosystem is quieter than it used to be", "Not a fit for anything compute-heavy"]
+        },
+        {
+          "name": "ATmega328P (Arduino Uno)",
+          "vendor": "Microchip",
+          "core": "8-bit AVR at 16 MHz, 32 KB flash, 2 KB RAM",
+          "used_for": "RFID gate keeper (SPI + servo)",
+          "rating": 2.5,
+          "pros": ["Easiest possible start", "5 V I/O and tons of libraries", "Great for quick hardware tests"],
+          "cons": ["Tiny memory and performance", "No on-board debugger on the Uno", "Hides the low-level details a professional needs"]
+        }
+      ]
+    },
+    {
+      "name": "Application processors and SoCs (MPUs)",
+      "blurb": "Linux-class processors: companion computers, edge AI, gateways.",
+      "chips": [
+        {
+          "name": "NVIDIA Jetson Orin NX / Xavier",
+          "vendor": "NVIDIA",
+          "core": "Arm Cortex-A78AE cores (Orin) + Ampere GPU with tensor cores",
+          "used_for": "UAV companion computers, camera/LiDAR integration, Linux camera and ethernet-switch drivers",
+          "rating": 4.5,
+          "pros": ["The go-to drone companion computer for onboard AI", "CUDA, TensorRT and a strong camera pipeline", "Plenty of performance per watt for vision"],
+          "cons": ["10–25 W power and real thermal design needed", "Kernel and Ubuntu versions tied to JetPack/L4T", "Expensive modules and carriers"]
+        },
+        {
+          "name": "NXP i.MX 8M Plus",
+          "vendor": "NXP",
+          "core": "4× Cortex-A53 at 1.8 GHz + Cortex-M7 at 800 MHz, 2.3 TOPS NPU, ISP, VPU",
+          "used_for": "FRDM-IMX8MPLUS node reporting to the Home Hub; Yocto images",
+          "rating": 4,
+          "pros": ["NPU + ISP for efficient edge vision", "Real-time Cortex-M7 on the same die (RPMsg)", "Long-term availability and a solid Yocto BSP"],
+          "cons": ["Cortex-A53 cores are getting old", "BSP and Yocto layers are heavy", "NPU tooling (eIQ) narrower than CUDA"]
+        },
+        {
+          "name": "Raspberry Pi (BCM2711 / BCM2712)",
+          "vendor": "Raspberry Pi",
+          "core": "4× Cortex-A72 (Pi 4) / Cortex-A76 (Pi 5)",
+          "used_for": "Companion-computer prototypes, LiDAR and camera integration, C++ sensor applications",
+          "rating": 4,
+          "pros": ["Huge community and accessory ecosystem", "Cheap, fast to prototype on", "Good camera support"],
+          "cons": ["Not industrial-grade; SD-card wear", "Closed boot firmware and GPU", "Supply and power-supply quirks"]
+        },
+        {
+          "name": "TI AM335x (BeagleBone Black)",
+          "vendor": "Texas Instruments",
+          "core": "Cortex-A8 at 1 GHz + 2× PRU real-time units, 512 MB RAM",
+          "used_for": "Kernel builds, device-tree and driver work, sensor applications",
+          "rating": 3.5,
+          "pros": ["PRUs give hard real-time I/O next to Linux", "Open hardware with excellent documentation", "Mainline kernel support, great for learning drivers"],
+          "cons": ["Single, slow 32-bit core", "Dated by today's standards", "Little RAM for modern workloads"]
+        }
+      ]
+    },
+    {
+      "name": "FPGAs and adaptive SoCs",
+      "blurb": "Programmable logic, alone or next to hard processor cores.",
+      "chips": [
+        {
+          "name": "Zynq UltraScale+ MPSoC",
+          "vendor": "AMD (Xilinx)",
+          "core": "4× Cortex-A53 + 2× Cortex-R5F + UltraScale+ programmable logic",
+          "used_for": "Bootloader and kernel integration, systemd-based initialization, PetaLinux",
+          "rating": 4,
+          "pros": ["Linux, real-time cores and FPGA fabric on one chip", "Strong security and safety features (secure boot)", "Scales to very demanding I/O and acceleration"],
+          "cons": ["Complex boot chain (FSBL, PMU, ATF, U-Boot)", "Heavy tools (Vivado, PetaLinux)", "Expensive parts and boards"]
+        },
+        {
+          "name": "Zynq-7000",
+          "vendor": "AMD (Xilinx)",
+          "core": "2× Cortex-A9 + 7-series programmable logic",
+          "used_for": "Linux drivers for a cryptographic accelerator",
+          "rating": 3.5,
+          "pros": ["Classic, well-understood Linux + FPGA platform", "Cheap development boards", "Great for custom hardware accelerators"],
+          "cons": ["Cortex-A9 is slow by today's standards", "Same heavy toolchain as UltraScale+", "Design effort for anything in the fabric"]
+        },
+        {
+          "name": "Artix-7 (Basys3)",
+          "vendor": "AMD (Xilinx)",
+          "core": "7-series FPGA, no hard processor",
+          "used_for": "VHDL projects, raster-scan video and register interfaces",
+          "rating": 3.5,
+          "pros": ["Ideal board for learning and testing VHDL", "Free Vivado edition covers it", "Deterministic, truly parallel logic"],
+          "cons": ["No hard CPU; soft cores cost fabric", "Limited I/O on the Basys3 board", "Long build times for small changes"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% set title = "Live Lab" %}
 {% block content %}
 
+<p class="kicker">Live Lab</p>
 <h1>Live from my home lab 📡</h1>
-<p>
+<p class="lead">
     Real-time readings from my ESP32-C6 hub (Zephyr RTOS) with a Bosch BME688
     sensor, and from an NXP i.MX 8M Plus board that reports to it. The hub
     publishes every 10 seconds over MQTT; this page subscribes directly from
@@ -30,15 +32,14 @@
 
 <style>
 .live-status { font-weight: 500; }
-.live-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #bbb; }
-.live-dot.on { background: #2e9e4f; }
-.live-dot.off { background: #c0392b; }
-.live-card { border: 1px solid #ddd; border-radius: 8px; padding: 16px 20px; margin: 16px 0; max-width: 900px; }
-.live-card h3 { margin-top: 0; }
-.live-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-.live-k { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
-.live-v { font-size: 1.4rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-.stale .live-v { color: #aaa; }
+.live-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.live-dot.on { background: var(--ok); box-shadow: 0 0 0 4px rgba(46, 158, 79, .18); }
+.live-dot.off { background: var(--bad); }
+.live-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 22px; margin: 16px 0; }
+.live-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+.live-k { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.live-v { font: 600 1.45rem var(--font-head); font-variant-numeric: tabular-nums; }
+.stale .live-v { color: var(--muted); }
 </style>
 
 <script src="https://unpkg.com/mqtt@5.10.1/dist/mqtt.min.js"></script>

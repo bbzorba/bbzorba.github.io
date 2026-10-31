@@ -1,0 +1,86 @@
+{
+  "intro": "My public work on GitHub, grouped by domain. The list is rebuilt from my GitHub account every day; repositories not listed below show up under \"Other projects\" until they get a group.",
+  "groups": [
+    {
+      "name": "Zephyr RTOS",
+      "icon": "🪁",
+      "blurb": "Real-time applications on Zephyr, across vendors.",
+      "projects": [
+        {"repo": "ESP32C6-Zephyr-IoT-Projects", "title": "Home Hub on ESP32-C6", "summary": "Always-on Wi-Fi sensor hub: HTTP dashboard, LAN device discovery, BME688 environment sensing, client nodes and MQTT publishing to the Live Lab page."},
+        {"repo": "nRF54L15-Zephyr-BLE-Projects", "title": "Bluetooth LE on nRF54L15", "summary": "Bluetooth Low Energy projects with Zephyr on Nordic's nRF54L15 development kit."},
+        {"repo": "STM32C5-NUCLEO-Zephyr-RT-Projects", "title": "Real-time projects on STM32C5", "summary": "Zephyr real-time applications on ST's new Cortex-M33 STM32C5 NUCLEO board."},
+        {"repo": "STM32F4-DISCO-Zephyr-Projects", "title": "Zephyr on STM32F4 Discovery", "summary": "Drivers and applications for the STM32F4 Discovery board under Zephyr."},
+        {"repo": "Renesas-RX140-Zephyr-LP-Applications", "title": "Low-power apps on Renesas RX140", "summary": "Low-power Zephyr applications for the Renesas RX140."}
+      ]
+    },
+    {
+      "name": "Embedded Linux",
+      "icon": "🐧",
+      "blurb": "Kernels, drivers, boot flows and user-space services.",
+      "projects": [
+        {"repo": "NXP-imx8MPlus-applications", "title": "i.MX 8M Plus client node", "summary": "Cross-compiled Linux service that reports the board's temperatures and system metrics to the Home Hub."},
+        {"repo": "PetaLinux-Projects", "title": "PetaLinux on Zynq", "summary": "PetaLinux builds and hardware designs for AMD/Xilinx Zynq platforms."},
+        {"repo": "Embedded-Linux-Security", "title": "Embedded Linux security", "summary": "Scripts, code and tools for hardening embedded Linux systems."},
+        {"repo": "BeagleBoneBlack-Sensor-Applications", "title": "BeagleBone Black sensor applications", "summary": "Sensor drivers and applications on the BeagleBone Black."},
+        {"repo": "BBB-linux-scripts", "title": "BeagleBone Black boot & build scripts", "summary": "Scripts to boot Linux, build kernel modules and device-tree files for the BeagleBone Black."},
+        {"repo": "RaspberryPi-Sensor-Applications", "title": "Raspberry Pi sensor applications", "summary": "C++ sensor applications for the Raspberry Pi."},
+        {"repo": "OpenOCD_Ubuntu_Packaging", "title": "OpenOCD packaging for Ubuntu", "summary": "Building and packaging OpenOCD for Ubuntu."}
+      ]
+    },
+    {
+      "name": "MCU firmware",
+      "icon": "🔧",
+      "blurb": "Bare-metal and HAL-based firmware for microcontrollers.",
+      "projects": [
+        {"repo": "STM32C5-NUCLEO-Security-Projects", "title": "Security projects on STM32C5", "summary": "Object-oriented C projects exploring the security features of the STM32C5 NUCLEO board."},
+        {"repo": "STM32H7-Nucleo-Sensor-Applications", "title": "STM32H7 sensor applications", "summary": "Sensor applications on the STM32H7 Nucleo using CMSIS and HAL."},
+        {"repo": "STM32F4-DISCO-BareMetal-Projects", "title": "Bare-metal STM32F4", "summary": "Register-level drivers and applications for the STM32F4 Discovery, no HAL."},
+        {"repo": "STM32F4-DISCO-Sensor-Applications-Cpp", "title": "STM32F4 sensor applications in C++", "summary": "Object-oriented C++ sensor software on the STM32F4."},
+        {"repo": "ESP32-Sensor-Applications", "title": "ESP32 sensor applications", "summary": "Sensor applications on the classic ESP32."},
+        {"repo": "Infineon-C3M5-Motor-Controller", "title": "Infineon motor controller", "summary": "Motor-control firmware on an Infineon platform."},
+        {"repo": "MSP430-LCD-Controller", "title": "MSP430 LCD controller", "summary": "LCD controller firmware for the MSP430FR4311."},
+        {"repo": "Arduino-RFID-Gate-Keeper", "title": "RFID gate keeper", "summary": "RFID access gate on an Arduino Uno using SPI and a servo motor."}
+      ]
+    },
+    {
+      "name": "FPGA & HDL",
+      "icon": "🧩",
+      "blurb": "Digital design in VHDL.",
+      "projects": [
+        {"repo": "VHDL-Projects-with-Xilinx-Basys3-FPGA", "title": "VHDL projects on the Basys3", "summary": "Digital design projects on the Xilinx Basys3 (Artix-7) board."},
+        {"repo": "CRT-Raster-Scan", "title": "CRT raster scan", "summary": "Image and video raster-scan logic in VHDL."},
+        {"repo": "VHDL-Register-Interface", "title": "VHDL register interface", "summary": "Generic memory/register interface for application-specific IP cores."}
+      ]
+    },
+    {
+      "name": "Security & cryptography",
+      "icon": "🔐",
+      "blurb": "Lightweight cryptography and distributed ledgers.",
+      "projects": [
+        {"repo": "simplifiedAES", "title": "Simplified AES", "summary": "Efficient implementation of simplified AES for lightweight cryptography (master's thesis)."},
+        {"repo": "Switches", "title": "Switches payment channels", "summary": "A scalable unidirectional payment channel model on Ethereum."}
+      ]
+    },
+    {
+      "name": "Software & tools",
+      "icon": "💻",
+      "blurb": "Everything that isn't firmware.",
+      "projects": [
+        {"repo": "bbzorba.github.io", "title": "This website", "summary": "Static site built with Jinja2 and deployed by GitHub Actions; the Live Lab page subscribes to MQTT in the browser."},
+        {"repo": "TCPIP-ServerClient-Application", "title": "TCP/IP server and client", "summary": "A TCP/IP server and client in a single Python file."},
+        {"repo": "Bookstore-Tracking-App", "title": "Bookstore tracking app", "summary": "Bookstore tracking application written in Python."},
+        {"repo": "QR-Decomposition", "title": "QR decomposition", "summary": "Manual implementation of QR decomposition in Python."}
+      ]
+    },
+    {
+      "name": "Upstream projects I work with",
+      "icon": "🍴",
+      "blurb": "Forks of the open-source projects my work builds on.",
+      "projects": [
+        {"repo": "zephyr", "title": "Zephyr RTOS", "summary": "Fork of the Zephyr Project."},
+        {"repo": "rt-thread", "title": "RT-Thread", "summary": "Fork of the RT-Thread IoT real-time operating system."},
+        {"repo": "bbb-kernel-build", "title": "BeagleBone kernel", "summary": "Fork of the BeagleBoard/BeagleBone Linux kernel."}
+      ]
+    }
+  ]
+}

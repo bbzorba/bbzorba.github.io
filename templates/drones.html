@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% set title = "Drones" %}
+{% block content %}
+<p class="kicker">Drones</p>
+<h1>How a drone's electronics fit together</h1>
+<p class="lead">
+    A multicopter is a flying real-time system: a microcontroller closes control
+    loops thousands of times per second, while a Linux computer next to it can
+    see, plan and talk to the world. Here is a short, vendor-neutral tour of the
+    building blocks I work with.
+</p>
+
+<div class="card" style="margin-top: 1.5rem;">
+    <h3>Typical architecture</h3>
+    <svg viewBox="0 0 860 400" role="img" aria-label="Drone electronics block diagram" style="width:100%; height:auto; font: 13px var(--font);">
+        <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" style="fill: var(--muted)" />
+            </marker>
+        </defs>
+        <style>
+            .b { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.5; }
+            .k { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+            .t { fill: var(--ink); }
+            .s { fill: var(--muted); font-size: 11px; }
+            .l { stroke: var(--muted); stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+            .d { stroke: var(--muted); stroke-width: 1.5; fill: none; marker-start: url(#arr); marker-end: url(#arr); }
+        </style>
+        <!-- Ground -->
+        <rect class="b" x="20" y="20" width="170" height="60" rx="10" /><text class="t" x="105" y="46" text-anchor="middle">Ground control station</text><text class="s" x="105" y="64" text-anchor="middle">QGC / Mission Planner</text>
+        <rect class="b" x="20" y="320" width="170" height="60" rx="10" /><text class="t" x="105" y="346" text-anchor="middle">RC transmitter</text><text class="s" x="105" y="364" text-anchor="middle">pilot sticks, failsafe</text>
+        <!-- Links -->
+        <rect class="b" x="240" y="20" width="160" height="60" rx="10" /><text class="t" x="320" y="46" text-anchor="middle">Telemetry / data link</text><text class="s" x="320" y="64" text-anchor="middle">MAVLink · mesh · LTE · SATCOM</text>
+        <rect class="b" x="240" y="320" width="160" height="60" rx="10" /><text class="t" x="320" y="346" text-anchor="middle">RC receiver</text><text class="s" x="320" y="364" text-anchor="middle">CRSF / ELRS · SBUS</text>
+        <!-- Core -->
+        <rect class="k" x="450" y="150" width="180" height="100" rx="12" /><text class="t" x="540" y="182" text-anchor="middle" style="font-weight:600">Flight controller</text><text class="s" x="540" y="202" text-anchor="middle">STM32H7 · PX4 / ArduPilot</text><text class="s" x="540" y="220" text-anchor="middle">IMU · baro · mag</text><text class="s" x="540" y="236" text-anchor="middle">estimator + control loops</text>
+        <rect class="k" x="450" y="20" width="180" height="80" rx="12" /><text class="t" x="540" y="50" text-anchor="middle" style="font-weight:600">Companion computer</text><text class="s" x="540" y="70" text-anchor="middle">Jetson · RPi · i.MX (Linux)</text><text class="s" x="540" y="86" text-anchor="middle">vision · AI · autonomy</text>
+        <!-- Peripherals -->
+        <rect class="b" x="690" y="20" width="150" height="80" rx="10" /><text class="t" x="765" y="50" text-anchor="middle">Payload sensors</text><text class="s" x="765" y="70" text-anchor="middle">cameras · thermal</text><text class="s" x="765" y="86" text-anchor="middle">LiDAR · stereo</text>
+        <rect class="b" x="690" y="150" width="150" height="45" rx="10" /><text class="t" x="765" y="177" text-anchor="middle">GNSS + compass</text>
+        <rect class="b" x="690" y="210" width="150" height="45" rx="10" /><text class="t" x="765" y="237" text-anchor="middle">Rangefinder / flow</text>
+        <rect class="b" x="450" y="310" width="180" height="70" rx="10" /><text class="t" x="540" y="338" text-anchor="middle">ESCs → motors</text><text class="s" x="540" y="356" text-anchor="middle">DShot / PWM / DroneCAN</text>
+        <rect class="b" x="690" y="310" width="150" height="70" rx="10" /><text class="t" x="765" y="338" text-anchor="middle">Battery + power</text><text class="s" x="765" y="356" text-anchor="middle">PDB · BMS · power module</text>
+        <!-- Connections -->
+        <path class="d" d="M190 50 H240" />
+        <path class="d" d="M400 50 H450" />
+        <path class="l" d="M190 350 H240" />
+        <path class="l" d="M400 350 Q430 350 430 290 Q430 230 450 230" />
+        <path class="d" d="M540 100 V150" /><text class="s" x="548" y="130">MAVLink / uXRCE-DDS</text>
+        <path class="l" d="M690 60 H630" />
+        <path class="l" d="M690 172 H630" />
+        <path class="l" d="M690 232 H630" />
+        <path class="l" d="M540 250 V310" />
+        <path class="l" d="M690 345 H630" />
+        <path class="l" d="M765 310 Q765 280 640 262" /><text class="s" x="660" y="288">voltage / current</text>
+    </svg>
+</div>
+
+<h2>🧠 Flight controller</h2>
+<div class="grid grid-2">
+    <div class="card">
+        <h3>What it does</h3>
+        <ul>
+            <li>Reads the IMU (gyros, accelerometers) at kHz rates, plus barometer, magnetometer and GNSS.</li>
+            <li>Fuses them in an estimator (an EKF) into attitude, velocity and position.</li>
+            <li>Runs cascaded control loops (rate → attitude → velocity → position) and mixes the output to the motors.</li>
+            <li>Owns safety: arming checks, geofence, battery and RC-loss failsafes.</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>The hardware</h3>
+        <ul>
+            <li><strong>MCU:</strong> STM32F4/F7 in hobby boards; <strong>STM32H7</strong> is today's standard for professional autopilots (Pixhawk 6-series class).</li>
+            <li><strong>Sensors:</strong> often redundant, vibration-isolated and temperature-controlled IMUs.</li>
+            <li><strong>Interfaces:</strong> DShot/PWM to ESCs, CAN (DroneCAN, Cyphal) for GNSS and ESCs, UART for telemetry and the companion computer.</li>
+            <li><strong>Bootloader:</strong> lets new firmware be flashed over USB or CAN without a debugger.</li>
+        </ul>
+    </div>
+</div>
+
+<h2>✈️ Autopilot software</h2>
+<div class="card table-wrap">
+    <table>
+        <thead><tr><th></th><th>PX4</th><th>ArduPilot</th><th>Betaflight / INAV</th></tr></thead>
+        <tbody>
+            <tr><th>Focus</th><td>Professional and research drones; modular</td><td>Every vehicle type: copter, plane, VTOL, rover, boat, sub</td><td>FPV racing/freestyle (Betaflight), FPV navigation (INAV)</td></tr>
+            <tr><th>RTOS</th><td>NuttX</td><td>ChibiOS (also runs on Linux boards)</td><td>Bare-metal scheduler</td></tr>
+            <tr><th>Inside</th><td>Modules talking over uORB publish/subscribe</td><td>Vehicle-specific code on a shared library set; Lua scripting</td><td>Tight, fast loop for acro flying</td></tr>
+            <tr><th>Robotics link</th><td>MAVLink; uXRCE-DDS straight into ROS 2</td><td>MAVLink; DDS for ROS 2</td><td>MSP, limited MAVLink</td></tr>
+            <tr><th>License</th><td>BSD-3 (commercial-friendly)</td><td>GPLv3</td><td>GPLv3</td></tr>
+            <tr><th>Ground station</th><td>QGroundControl</td><td>Mission Planner, QGroundControl</td><td>Configurator apps</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>🖥️ Companion computer</h2>
+<div class="grid grid-2">
+    <div class="card">
+        <h3>Why a second computer</h3>
+        <p>The flight controller must stay small, deterministic and certifiable. Anything heavy runs next to it on Linux: cameras and video streaming, object detection, SLAM and obstacle avoidance, precision landing, mission logic and the long-range data link.</p>
+    </div>
+    <div class="card">
+        <h3>How they talk</h3>
+        <ul>
+            <li><strong>MAVLink</strong> over UART or Ethernet, using MAVSDK, MAVROS or pymavlink.</li>
+            <li><strong>uXRCE-DDS</strong> (PX4) to expose uORB topics directly as ROS 2 topics.</li>
+            <li>Typical boards: <a href="/hardware">NVIDIA Jetson, Raspberry Pi, NXP i.MX 8M Plus</a>.</li>
+        </ul>
+    </div>
+</div>
+
+<h2>📶 Links and communication</h2>
+<div class="grid grid-3">
+    <div class="card"><h3>RC control</h3><p>Low-latency pilot link: ExpressLRS/CRSF or SBUS receivers, with a failsafe if the link drops.</p></div>
+    <div class="card"><h3>Telemetry</h3><p>MAVLink over telemetry radios, mesh networks or IP links, to the ground station and between swarm members.</p></div>
+    <div class="card"><h3>Beyond visual line of sight</h3><p>LTE/5G and satellite links (e.g. Iridium Certus, Inmarsat) carry telemetry, commands and video far from the pilot.</p></div>
+</div>
+
+<h2>🧪 Simulation and testing</h2>
+<div class="grid grid-2">
+    <div class="card"><h3>SITL and HITL</h3><p>Software-in-the-loop runs the real autopilot code against a simulator such as Gazebo; hardware-in-the-loop runs it on the actual flight controller. Most bugs should die here, not in the air.</p></div>
+    <div class="card"><h3>Logs</h3><p>Every flight leaves a log (PX4 ULog, ArduPilot DataFlash). Tools like PX4 Flight Review and UAV Log Viewer show vibration, estimator health and control tracking.</p></div>
+</div>
+
+<h2>⚖️ Rules in the EU (short version)</h2>
+<div class="card">
+    <ul>
+        <li><strong>Open category:</strong> low-risk flights within visual line of sight, at most 120 m above ground, split into subcategories A1/A2/A3 depending on the drone's class (C0–C4) and distance to people.</li>
+        <li><strong>Specific category:</strong> higher-risk operations (e.g. BVLOS) need an operational authorisation, based on a risk assessment (SORA) or a standard scenario.</li>
+        <li><strong>Certified category:</strong> manned-aviation-level risk, such as carrying people.</li>
+        <li>Operators register, pilots pass a competency test, and class-marked drones broadcast Remote ID.</li>
+    </ul>
+    <p class="muted" style="margin-bottom:0;">A summary only; check EASA and your national aviation authority before flying.</p>
+</div>
+
+<h2>📚 Glossary</h2>
+<div class="card table-wrap">
+    <table>
+        <tbody>
+            <tr><th>IMU</th><td>Inertial measurement unit: gyroscope + accelerometer</td></tr>
+            <tr><th>EKF</th><td>Extended Kalman filter, the estimator fusing all sensors</td></tr>
+            <tr><th>ESC</th><td>Electronic speed controller driving a brushless motor</td></tr>
+            <tr><th>DShot</th><td>Digital protocol from flight controller to ESC</td></tr>
+            <tr><th>MAVLink</th><td>Lightweight messaging protocol between drones, ground stations and companion computers</td></tr>
+            <tr><th>uORB</th><td>PX4's internal publish/subscribe message bus</td></tr>
+            <tr><th>RTK</th><td>Real-time kinematic GNSS, centimetre-level positioning</td></tr>
+            <tr><th>VLOS / BVLOS</th><td>Within / beyond visual line of sight of the pilot</td></tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,90 +1,67 @@
 {% extends "base.html" %}
+{% set title = "Resume" %}
 {% block content %}
+<p class="kicker">Resume</p>
+<h1>Experience & skills</h1>
+<p class="lead">{{ cv.Summary }}</p>
 
-<h2>👨‍💻 Experiences</h2>
-{% for item in experiences %}
-    <div>
-        <strong>{{ item.title }}</strong> at {{ item.company }} ({{ item.duration }})<br>
-        <em>{{ item.location }}</em>
+<h2>👨‍💻 Experience</h2>
+<ul class="timeline">
+    {% for job in cv.Experience %}
+    <li>
+        <h3>{{ job.title }}</h3>
+        <div><strong>{{ job.company }}</strong></div>
+        <div class="when">{{ job.duration }} · {{ job.location }}</div>
         <ul>
-            {% for d in item.details %}
-                <li>{{ d }}</li>
+            {% for d in job.details %}
+            <li><strong>{{ d.topic }}:</strong> {{ d.text }}</li>
             {% endfor %}
         </ul>
-    </div>
-{% endfor %}
+    </li>
+    {% endfor %}
+</ul>
 
-<hr>
+<h2>🛠️ Technical skills</h2>
+<div class="grid grid-3">
+    {% for category, items in cv.Skills.items() %}
+    <div class="card">
+        <h3>{{ category }}</h3>
+        <ul class="chips">
+            {% for s in items %}<li class="chip">{{ s }}</li>{% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
 
 <h2>🎓 Education</h2>
-{% for item in education %}
-    <p>
-        <strong>{{ item.degree }}</strong><br>
-        {{ item.institution }} ({{ item.duration }})
-    </p>
-{% endfor %}
-
-<hr>
-
-<h2>📜 Certificates</h2>
-<ul>
-    {% for cert in certificates %}
-        <li>{{ cert }}</li>
+<div class="grid grid-3">
+    {% for e in cv.Education %}
+    <div class="card">
+        <h3>{{ e.degree }}</h3>
+        <div>{{ e.institution }}</div>
+        <div class="muted">{{ e.duration }}{% if e.note %} · {{ e.note }}{% endif %}</div>
+    </div>
     {% endfor %}
-</ul>
+</div>
 
-<hr>
+<div class="grid grid-2" style="margin-top: 2.2rem;">
+    <div class="card">
+        <h3>📜 Selected certifications</h3>
+        <ul>{% for c in cv.Certificates %}<li>{{ c }}</li>{% endfor %}</ul>
+    </div>
+    <div class="card">
+        <h3>🗣️ Languages</h3>
+        <ul>{% for l in cv.Languages %}<li>{{ l.name }} ({{ l.level }})</li>{% endfor %}</ul>
+    </div>
+</div>
 
-<h2>📖 Thesis & Academic Work</h2>
-<ul>
-    {% for paper in journal_papers %}
-        <li>
-            <strong>{{ paper.title }}</strong><br>
-            {{ paper.journal }} ({{ paper.year }})<br>
-            <a href="{{ paper.link }}" target="_blank">Read more</a>
-        </li>
-    {% endfor %}
-    {% for conf in conference_proceedings %}
-        <li>
-            <strong>{{ conf.title }}</strong><br>
-            {{ conf.conference }} ({{ conf.year }})<br>
-            <a href="{{ conf.link }}" target="_blank">Read more</a>
-        </li>
-    {% endfor %}
-</ul>
-
-<hr>
-
-<h2>🛠️ Skills</h2>
-
-<h3>Programming</h3>
-<ul>
-    {% for skill in skills.Programming %}
-        <li>{{ skill }}</li>
-    {% endfor %}
-</ul>
-
-<h3>Tools & Frameworks</h3>
-<ul>
-    {% for tool in skills.Tools %}
-        <li>{{ tool }}</li>
-    {% endfor %}
-</ul>
-
-<h3>Languages</h3>
-<ul>
-    {% for lang in skills.Languages %}
-        <li>{{ lang.name }} ({{ lang.level }})</li>
-    {% endfor %}
-</ul>
-
-<hr>
-
-<h2>🌟 Areas of Interest</h2>
-<ul>
-    {% for area, level in areas_of_interest.items() %}
-        <li>{{ area }}: {{ level }}</li>
-    {% endfor %}
-</ul>
-
+<h2>📖 Publications</h2>
+<div class="card">
+    <ul>
+        <li><a href="{{ cv.Publications.thesis.link }}" target="_blank">{{ cv.Publications.thesis.title }}</a></li>
+        {% for p in cv.Publications["items"] %}
+        <li><a href="{{ p.link }}" target="_blank">{{ p.title }}</a><br><span class="muted">{{ p.venue }} ({{ p.year }})</span></li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

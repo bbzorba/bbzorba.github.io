@@ -2,29 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title or "Barış Berk Zorba" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title ~ " · " if title }}Barış Berk Zorba</title>
+    <meta name="description" content="Barış Berk Zorba: embedded software and firmware engineer in Munich, working on drones, flight controllers and embedded Linux.">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/static/style.css">
-    <!-- Font Awesome for icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css?v={{ build_id }}">
 </head>
 <body>
-    <nav>
-        <div class="nav-left">
-            <a href="/">Home</a>
-        </div>
-        <div class="nav-right">
-            <a href="/resume">Resume</a>
-            <a href="/travel_blog">Travel Blog</a>
-            <a href="/my_projects">My Projects</a>
-            <a href="/live">Live Lab</a>
-            <a href="/sports">Sports</a>
-            <a href="/contact">Contact Me</a>
-        </div>        
-    </nav>
+    <header class="site-header">
+        <nav class="nav">
+            <a class="brand" href="/" aria-label="Home">
+                <!-- Quadcopter, top view -->
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="M10 10 L22 22 M22 10 L10 22" />
+                    <rect x="12.5" y="12.5" width="7" height="7" rx="2" fill="#f0934a" stroke="none" />
+                    <circle cx="8" cy="8" r="4.5" /><circle cx="24" cy="8" r="4.5" />
+                    <circle cx="8" cy="24" r="4.5" /><circle cx="24" cy="24" r="4.5" />
+                </svg>
+                Barış Berk Zorba
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">☰</label>
+            <div class="nav-links">
+                {% set links = [
+                    ("/", "Home"), ("/resume", "Resume"), ("/my_projects", "Projects"),
+                    ("/hardware", "Hardware"), ("/drones", "Drones"), ("/live", "Live Lab"),
+                    ("/travel_blog", "Travel"), ("/sports", "Sports"), ("/contact", "Contact")] %}
+                {% for href, label in links %}
+                <a href="{{ href }}"{% if page == href or (href != "/" and page and page.startswith(href)) %} class="active"{% endif %}>{{ label }}</a>
+                {% endfor %}
+            </div>
+        </nav>
+    </header>
 
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <span>© Barış Berk Zorba · Munich, Germany</span>
+            <span>
+                <a href="https://github.com/bbzorba" target="_blank"><i class="fab fa-github"></i> GitHub</a> ·
+                <a href="https://www.linkedin.com/in/bbzorba/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </span>
+        </div>
+    </footer>
 </body>
 </html>

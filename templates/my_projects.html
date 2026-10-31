@@ -1,17 +1,28 @@
 {% extends "base.html" %}
+{% set title = "Projects" %}
 {% block content %}
+<p class="kicker">Projects</p>
+<h1>What I build</h1>
+<p class="lead">{{ intro }}</p>
 
-<h2>📂 My Projects</h2>
-{% for repo in repos %}
-    <div>
-        <h3>{{ repo.name }}</h3>
-        <img src="https://via.placeholder.com/600x400.jpg" alt="{{ repo.name }} Image">
-        <p>{{ repo.description or "No description provided." }}</p>
-        <strong>Language:</strong> {{ repo.language or "Not specified" }}<br>
-        <a href="{{ repo.html_url }}" target="_blank">View on GitHub</a>
-        <div style="margin-bottom: 2.5rem;"></div>
+<ul class="chips">
+    {% for g in groups %}<li><a class="chip" href="#{{ g.name | lower | replace(' ', '-') | replace('&', 'and') }}">{{ g.icon }} {{ g.name }}</a></li>{% endfor %}
+</ul>
+
+{% for g in groups %}
+<h2 id="{{ g.name | lower | replace(' ', '-') | replace('&', 'and') }}">{{ g.icon }} {{ g.name }}</h2>
+<p class="muted">{{ g.blurb }}</p>
+<div class="grid grid-2">
+    {% for p in g.projects %}
+    <div class="card">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.summary }}</p>
+        <p class="muted" style="font-size:.88rem; margin-bottom:.3rem;">
+            {% if p.language %}{{ p.language }} · {% endif %}updated {{ p.updated }}{% if p.stars %} · ★ {{ p.stars }}{% endif %}
+        </p>
+        <a href="{{ p.url }}" target="_blank"><i class="fab fa-github"></i> {{ p.repo }}</a>
     </div>
-    <hr>
+    {% endfor %}
+</div>
 {% endfor %}
-
 {% endblock %}

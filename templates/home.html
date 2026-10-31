@@ -1,14 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="home">
-    <div class="profile-container">
-        <img src="/static/images/profile.jpg" alt="Profile" class="profile-img">
+<section class="hero">
+    <div>
+        <p class="kicker">Embedded software · Flight controllers · Embedded Linux</p>
+        <h1>Hi, I'm Barış Berk Zorba 👋</h1>
+        <p class="lead">
+            Senior embedded software and firmware engineer in Munich 🇩🇪, building the
+            low-level software that keeps drones in the air: flight-controller
+            bootloaders on STM32 with PX4, companion computers, Linux drivers and
+            secure firmware.
+        </p>
+        <ul class="chips">
+            <li class="chip">STM32 · PX4</li>
+            <li class="chip">Embedded Linux · Yocto</li>
+            <li class="chip">Zephyr</li>
+            <li class="chip">Jetson · Companion computers</li>
+            <li class="chip">FPGA · VHDL</li>
+            <li class="chip">Hardware security</li>
+        </ul>
+        <div class="actions">
+            <a class="btn" href="/live">📡 See my home lab live</a>
+            <a class="btn secondary" href="/resume">Resume</a>
+            <a class="btn secondary" href="/contact">Get in touch</a>
+        </div>
     </div>
-    <h1>Hello, I'm Barış Berk Zorba 👋</h1>
-    <p>Senior FPGA and Embedded Software Engineer based in Munich 🇩🇪</p>
-    <p>I love coding, exploring tech, and traveling across the globe 🌍</p>
-    <p>In my free time, I enjoy watching football and basketball, supporting Fenerbahçe and Bayern Munich. I also love city sightseeing and photography.</p>
-    <p>Feel free to reach out to me at: <strong>bbzorba@hotmail.com</strong></p>
-    <p>Check out my engineering background, hobby projects, interest on sports and travel blog ⬆️</p>
+    <img src="/static/images/profile.jpg" alt="Barış Berk Zorba" class="hero-photo">
+</section>
+
+<h2>Around the site</h2>
+<div class="grid grid-3">
+    <a class="card tile" href="/my_projects"><div class="icon">🛠️</div><h3>Projects</h3><p class="muted">Firmware, Linux and FPGA work on GitHub, grouped by domain.</p></a>
+    <a class="card tile" href="/hardware"><div class="icon">🔌</div><h3>Hardware</h3><p class="muted">The MCUs, SoCs and FPGAs I use, with honest pros, cons and ratings.</p></a>
+    <a class="card tile" href="/drones"><div class="icon">🚁</div><h3>Drones</h3><p class="muted">How a drone's electronics fit together: flight controller, companion computer, PX4, ArduPilot.</p></a>
+    <a class="card tile" href="/live"><div class="icon">📡</div><h3>Live Lab</h3><p class="muted">Real-time sensor data from my ESP32-C6 hub and i.MX 8M Plus board.</p></a>
+    <a class="card tile" href="/travel_blog"><div class="icon">✈️</div><h3>Travel</h3><p class="muted">Places I've lived in, visited, and still want to see.</p></a>
+    <a class="card tile" href="/sports"><div class="icon">⚽</div><h3>Sports</h3><p class="muted">Fenerbahçe and Bayern Munich, on the pitch and on the court.</p></a>
 </div>
 {% endblock %}

@@ -1,176 +1,149 @@
 {
-    "Goals": "As a senior engineer with 5+ years of experience, I aim to deepen my expertise in Embedded Systems, using my background in Microcontrollers, Computer Architecture, and FPGAs.",
-  
-    "Experience": [
-      {
-        "title": "Senior FPGA and Embedded Software Engineer",
-        "company": "b1 Engineering",
-        "duration": "Jan. 2025 – Now",
-        "location": "Munich, Germany",
-        "details": [
-          "FPGA design, memory organization, hardware integration",
-          "Projects: Power Filter Digital Unit"
-        ]
-      },
-      {
-        "title": "Embedded Software Engineer",
-        "company": "esc Aerospace GmbH",
-        "duration": "Apr. 2022 – Dec. 2024",
-        "location": "Munich, Germany",
-        "details": [
-          "AI-assisted smoke detection system and LoRa-based communication system",
-          "Drone image processing with Video, Stereo and Thermal Cameras and SATCOM integration",
-          "Sensor network of a firefighter drone",
-          "Automated drone landing on a visual marker",
-          "Detect-and-Avoid System using a 2D LiDAR",
-          "Drone swarm communication and control system",
-          "Channel switching unit for a drone communication system"
-        ]
-      },
-      {
-        "title": "Systems Design Engineer",
-        "company": "ASELSAN Inc.",
-        "duration": "Sep. 2019 – March. 2022",
-        "location": "Ankara, Turkey",
-        "details": [
-          "crypto accelerator IP for a soft core processor",
-          "Hardware and Software-based encryption algorithms and RNGs",
-          "Data link communication projects",
-          "Ethereum-based decentralized digital currency",
-          "hardware encrypted USB device"
-        ]
-      },
-            {
-        "title": "Part-Time Student Assistant",
-        "company": "Hacettepe University",
-        "duration": "Feb 2019 – June 2019",
-        "location": "Ankara, Turkey",
-        "details": [
-          "Emu8086 with x86 Assembly language"
-        ]
-      },
-      {
-        "title": "Summer Intern (Aeronautical Informatics Engineer)",
-        "company": "Technical University of Clausthal",
-        "duration": "June 2018 – July 2018",
-        "location": "Clausthal-Zellerfeld, Germany",
-        "details": [
-          "Quadcopter embedded software and flight controller development"
-        ]
-      },
-      {
-        "title": "Summer Intern (Digital Design Engineer)",
-        "company": "Meteksan Defense",
-        "duration": "June 2017 – July 2017",
-        "location": "Ankara, Turkey",
-        "details": [
-          "FPGA-based video processing system"
-        ]
-      }
-    ],
-  
-    "Education": [
-      {
-        "degree": "MSc in Electrical & Electronics Engineering",
-        "institution": "Hacettepe University",
-        "duration": "2020 – 2022"
-      },
-      {
-        "degree": "BSc in Electrical & Electronics Engineering",
-        "institution": "Hacettepe University",
-        "duration": "2014 – 2019"
-      },
-      {
-        "degree": "Erasmus Exchange Programme in Electronics and Information Technologies",
-        "institution": "Warsaw University of Technology",
-        "duration": "2015 – 2016"
-      },
-      {
-        "degree": "High School Diploma",
-        "institution": "TED Ankara College Private High School",
-        "duration": "2010 – 2014"
-      }
-    ],
+  "Summary": "Embedded Software Engineer with 7+ years of experience in low-level software, Embedded Linux, firmware development, hardware-software integration, and hardware security. Experienced in Linux kernel driver development, Device Tree, bootloader mechanisms, secure firmware, and system-level software for custom SoCs and embedded platforms. Hands-on experience across aerospace, defense, and autonomous systems, including hardware-implemented security mechanisms, UAV flight software, companion computers, camera and sensor integration, and hardware bring-up and validation.",
 
-    "Certificates": [
-      "Linux System Programming – University of Colorado",
-      "Computer Architecture – Princeton University",
-      "Drone Pilot License – EASA",
-      "Driver’s License - Class-B German driver’s license",
-      "Leben in Deutschland - Integration to Germany exam",
-      "IWBIS ’22 - Best session presenter award",
-      "Doulos - Comprehensive VHDL certificate",
-      "Ayrotek - Blockchain Technologies certificate",
-      "Tekim Akademi - Systems Engineering certificate"
-    ],
-
-    "Languages": [
-      {
-        "name": "Turkish",
-        "level": "Native"
-      },
-      {
-        "name": "English",
-        "level": "C1"
-      },
-      {
-        "name": "German",
-        "level": "B1+"
-      }
-    ],
-    
-    "Areas of Interest":
+  "Experience": [
     {
-      "FPGA Design": "Expert",
-      "Embedded Systems": "Expert",
-      "Computer Architecture": "Advanced",
-      "Microcontrollers": "Advanced",
-      "Applied Cryptography": "Advanced",
-      "Operating Systems": "Advanced",
-      "IoT": "Advanced",
-      "Real-time Systems": "Intermediate",
-      "Hardware Accelerators": "Intermediate",
-      "Wireless Communication": "Intermediate"
+      "title": "Senior Embedded Software/Firmware Engineer",
+      "company": "Stealth Start-Up",
+      "duration": "Aug. 2026 – Present",
+      "location": "Munich, Germany",
+      "details": [
+        {"topic": "Flight Controller Bootloader Development", "text": "Developed bootloader functionality for an STM32-based flight controller integrated with the PX4-Autopilot stack."},
+        {"topic": "Build & Debug Optimization", "text": "Automation of target configuration and its validation in CI for an embedded flight-control platform for advanced build and debug capabilities."},
+        {"topic": "EMC Test Firmware", "text": "Data integrity and file integrity of SSD, MIPI video frame integrity and checksum of the flash memory for STM32H7 and Jetson Orin NX board under Radiation Susceptibility Tests."}
+      ]
     },
+    {
+      "title": "Senior Embedded Software Engineer",
+      "company": "b1 Engineering Solutions GmbH & Co. KG",
+      "duration": "Jan. 2025 – Aug. 2026",
+      "location": "Munich, Germany",
+      "details": [
+        {"topic": "Linux Kernel Driver Development", "text": "Developed Linux drivers for a video camera and ethernet switch, including Device Tree integration on NVIDIA Jetson Orin platforms deployed in land vehicles and naval systems."},
+        {"topic": "Embedded Linux System Initialization", "text": "Developed shell scripts and systemd services for automated system initialization, partitioning, formatting, and storage management on UltraScale+ MPSoC platforms."},
+        {"topic": "Bootloader Integration", "text": "Configured and integrated bootloader mechanisms for custom UltraScale+ MPSoC hardware."},
+        {"topic": "Linux Kernel Integration", "text": "Configured and customized the Linux kernel and integrated hardware peripheral drivers."},
+        {"topic": "FPGA / SoC Integration", "text": "Integrated communication interfaces in VHDL for a custom SoC implemented on power-filtering hardware."},
+        {"topic": "Data Integrity & Fault Handling", "text": "Implemented data-integrity, write-protection, and error-handling mechanisms for power-filtering hardware."}
+      ]
+    },
+    {
+      "title": "Embedded Software Engineer",
+      "company": "esc Aerospace GmbH",
+      "duration": "Apr. 2022 – Dec. 2024",
+      "location": "Munich, Germany",
+      "details": [
+        {"topic": "Autonomous Flight Software", "text": "Designed and implemented companion computer software for UAV systems including autonomous visual landing on ArUco markers, 2D LiDAR-based Detect-and-Avoid system, sensor integration, and optimized route planning."},
+        {"topic": "Edge AI for Forest Fire", "text": "Developed an AI-assisted smoke detection system and a CNN-based human detection system for forest fires using thermal images."},
+        {"topic": "Time-of-Flight Calculation", "text": "Integrated LiDAR, video and stereo cameras to NVIDIA Orin and Raspberry Pi platforms for ROS-based 2D area mapping and altitude estimation."},
+        {"topic": "UAV Communication Architecture", "text": "Designed UDP-based GCS-drone swarm mesh network for core real-time telemetry, video streaming, and flight command routing."},
+        {"topic": "SATCOM Integration", "text": "Integrated and tested Iridium Certus and INMARSAT BGAN services for BVLOS UAVs using TCP/IP communication."},
+        {"topic": "BMS & Mission Planning", "text": "Developed battery-monitoring and UAV route-planning functionality for autonomous flight systems."}
+      ]
+    },
+    {
+      "title": "Systems Design Engineer",
+      "company": "ASELSAN – Crypto and Information Security Department",
+      "duration": "Sep. 2019 – Apr. 2022",
+      "location": "Ankara, Turkey",
+      "details": [
+        {"topic": "Hardware Security & FPGA Design", "text": "Implemented a cryptographic accelerator and random-number generator in VHDL for a secure soft-core."},
+        {"topic": "Linux Driver Development", "text": "Developed and integrated Linux device drivers for the cryptographic accelerator on Zynq-7000."},
+        {"topic": "Embedded Cryptography", "text": "Implemented encryption and authentication systems on security-enhanced STM32 microcontrollers."},
+        {"topic": "Secure Embedded Firmware", "text": "Developed central-controller firmware using MSP430 for an encrypted USB device."},
+        {"topic": "Hardware Security Validation", "text": "Analyzed and validated the hardware security of the end-to-end encryption device against fault-injection and side-channel attacks."},
+        {"topic": "Security Architecture & Requirements", "text": "Defined and verified functional requirements for secure communication systems using DOORS, and designed encrypted communication and authentication architectures for a surface-to-air missile system using Rational Rhapsody."}
+      ]
+    },
+    {
+      "title": "Part-Time Student Assistant",
+      "company": "Hacettepe University – Department of Electrical and Electronics Engineering",
+      "duration": "Feb. – Jun. 2019",
+      "location": "Ankara, Turkey",
+      "details": [
+        {"topic": "Microprocessor Lab Instruction", "text": "Taught senior students low-level programming and microprocessor concepts through practical exercises using x86 Assembly and Emu8086."}
+      ]
+    },
+    {
+      "title": "Summer Intern",
+      "company": "Technical University of Clausthal",
+      "duration": "Jun. – Jul. 2018",
+      "location": "Clausthal, Germany",
+      "details": [
+        {"topic": "Flight Mission Software", "text": "Developed companion-computer software for a hexacopter in Python using PyMAVLink protocol."},
+        {"topic": "UAV Systems Integration", "text": "Supported the integration of the companion-computer (NanoPi) and the flight controller (Kakute F4) to the UAV platform."}
+      ]
+    },
+    {
+      "title": "Summer Intern",
+      "company": "Meteksan Defense",
+      "duration": "Jun. – Jul. 2017",
+      "location": "Ankara, Turkey",
+      "details": [
+        {"topic": "Video Processing", "text": "Implemented MIPI CSI-2 TX protocol in VHDL on a Xilinx FPGA for receiving the video frames from a RS-170 and NTSC CRT within a tactical data-link communication system."}
+      ]
+    }
+  ],
 
-    "Programming Skills": 
-    [
-      "Python", "C/C++", "Embedded C", "Assembly", "VHDL", "HTML", "OOP", "UML/SysML", "Dart (Flutter)"
-    ],
-    
-    "Tools": [
-      "Raspberry Pi", "STM32", "ESP32", "MSP430", "NXP i.MX 8M SoC", "Arduino",
-      "ARM", "RISC-V", "Yocto", "FreeRTOS", "Vivado", "Quartus II",
-      "ModelSim", "QuestaSim", "Git", "Jira", "HDL Designer", "MATLAB", "STM32CubeIDE"
-    ],
+  "Education": [
+    {"degree": "M.Sc. Electrical & Electronics Engineering", "institution": "Hacettepe University, Ankara", "duration": "2020 – 2022", "note": "GPA 3.35/4.00"},
+    {"degree": "B.Sc. Electrical & Electronics Engineering", "institution": "Hacettepe University, Ankara", "duration": "2014 – 2019", "note": ""},
+    {"degree": "Erasmus Exchange – Electronics & Information Technologies", "institution": "Warsaw University of Technology, Poland", "duration": "2015 – 2016", "note": ""}
+  ],
 
-    "Journal Papers": [
-        {
-            "title": "Enhancing the Capabilities of Mobile Backhaul: A User Plane Perspective",
-            "journal": "Journal of Network & Systems Management",
-            "year": 2022,
-            "link": "https://link.springer.com/article/10.1007/s10922-022-09646-8"
-        }
-    ],
+  "Skills": {
+    "Programming": ["C/C++", "Embedded C/C++", "Python", "Assembly", "VHDL", "UML/SysML"],
+    "Embedded Platforms": ["STM32", "ESP32", "MSP430", "NVIDIA Jetson Orin/Xavier", "Zynq-7000", "Zynq UltraScale+ MPSoC", "Raspberry Pi", "BeagleBone Black"],
+    "Embedded Linux & RTOS": ["PetaLinux", "Yocto", "Buildroot", "Ubuntu", "Zephyr", "FreeRTOS", "NuttX", "RT-Thread"],
+    "Tracking & Testing": ["Git", "Jira", "Confluence", "QEMU", "PyTest", "Logic Analyzer", "Digital Oscilloscope"],
+    "Avionics & Robotics": ["PX4", "ArduPilot", "Gazebo", "ROS1/ROS2", "QGroundControl", "Mission Planner"],
+    "Security & Systems": ["Secure Boot", "Firmware Security", "Cryptography", "Hardware Security", "Linux Kernel", "Device Tree", "Bootloaders"]
+  },
 
-    "Conference Proceedings": [
-        {
-            "title": "Software Implementation Performances of Block Ciphers: A Systematic Literature Review",
-            "conference": "7th International Workshop on Big Data and Information Security (IWBIS)",
-            "year": 2022,
-            "link": "https://ieeexplore.ieee.org/document/9924700"
-        },
-        {
-            "title": "Network Coding Aware User Plane for Mobile Networks",
-            "conference": "16th International Conference on Network and Service Management (CNSM)",
-            "year": 2020,
-            "link": "https://ieeexplore.ieee.org/document/9269117"
-        },
-        {
-            "title": "Switches: A Scalable Unidirectional Payment Channel Model in Ethereum",
-            "conference": "6th High Performance Computing Conference (BASARIM)",
-            "year": 2020,
-            "link": "https://www.researchgate.net/profile/Murat-Aydos-2/publication/346021637_Switches_A_Scalable_Unidirectional_Payment_Channel_Model_in_Ethereum/links/5fb663e4299bf104cf5b0f4a/Switches-A-Scalable-Unidirectional-Payment-Channel-Model-in-Ethereum.pdf"
-        }
+  "Languages": [
+    {"name": "Turkish", "level": "Native"},
+    {"name": "English", "level": "C1"},
+    {"name": "German", "level": "B1+"}
+  ],
+
+  "Certificates": [
+    "Embedded OOP in C/C++ (2025)",
+    "Linux System Programming & Buildroot (2023)",
+    "Computer Architecture – Princeton University (2023)",
+    "Comprehensive VHDL (2021)",
+    "Systems Engineering (2020)"
+  ],
+
+  "Publications": {
+    "thesis": {
+      "title": "Master's Thesis on simplified AES and side-channel analysis",
+      "link": "https://github.com/bbzorba/simplifiedAES"
+    },
+    "items": [
+      {
+        "title": "Enhancing the Capabilities of Mobile Backhaul: A User Plane Perspective",
+        "venue": "Journal of Network & Systems Management",
+        "year": 2022,
+        "link": "https://link.springer.com/article/10.1007/s10922-022-09646-8"
+      },
+      {
+        "title": "Software Implementation Performances of Block Ciphers: A Systematic Literature Review",
+        "venue": "7th International Workshop on Big Data and Information Security (IWBIS)",
+        "year": 2022,
+        "link": "https://ieeexplore.ieee.org/document/9924700"
+      },
+      {
+        "title": "Network Coding Aware User Plane for Mobile Networks",
+        "venue": "16th International Conference on Network and Service Management (CNSM)",
+        "year": 2020,
+        "link": "https://ieeexplore.ieee.org/document/9269117"
+      },
+      {
+        "title": "Switches: A Scalable Unidirectional Payment Channel Model in Ethereum",
+        "venue": "6th High Performance Computing Conference (BASARIM)",
+        "year": 2020,
+        "link": "https://www.researchgate.net/profile/Murat-Aydos-2/publication/346021637_Switches_A_Scalable_Unidirectional_Payment_Channel_Model_in_Ethereum/links/5fb663e4299bf104cf5b0f4a/Switches-A-Scalable-Unidirectional-Payment-Channel-Model-in-Ethereum.pdf"
+      }
     ]
+  }
 }
