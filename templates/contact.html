@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>📬 Contact Me (Not Working Yet)</h2>
+<h2>📬 Contact Me</h2>
 
 <div class="contact-icons" style="font-size:2rem; margin-bottom: 1.5rem;">
     <a href="mailto:bbzorba@hotmail.com" title="E-mail" target="_blank" style="margin-right: 18px;">
@@ -28,12 +28,9 @@
 </p>
 
 <h3>Send me a message</h3>
-{% if sent %}
-    <div style="color: green; font-weight: bold;">Your message has been sent! Thank you.</div>
-{% elif error %}
-    <div style="color: red; font-weight: bold;">Error: {{ error }}</div>
-{% endif %}
-<form method="post" action="/contact" style="max-width:400px;">
+<!-- The site is static, so the form opens the visitor's mail app with the
+     message filled in instead of sending it from a server -->
+<form id="contact-form" style="max-width:400px;">
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" required style="width:100%;"><br>
     <label for="email">E-mail:</label><br>
@@ -42,6 +39,16 @@
     <textarea id="message" name="message" rows="5" required style="width:100%;"></textarea><br>
     <button type="submit" style="margin-top:10px;">Send</button>
 </form>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var val = function (id) { return document.getElementById(id).value; };
+    var body = 'Name: ' + val('name') + '\nE-mail: ' + val('email') + '\n\n' + val('message');
+    window.location.href = 'mailto:bbzorba@hotmail.com' +
+        '?subject=' + encodeURIComponent('Contact Form Message from Website') +
+        '&body=' + encodeURIComponent(body);
+});
+</script>
 
 <h3>My Workplace</h3>
 <iframe
