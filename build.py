@@ -73,6 +73,7 @@ def main():
            conference_proceedings=cv.get("Conference Proceedings", []))
     render("/travel_blog", "blog.html", posts=posts)
     render("/my_projects", "my_projects.html", repos=github_repos())
+    render("/live", "live.html")
     render("/contact", "contact.html")
     render("/sports", "sports.html")
     for team in ("fenerbahce", "fenerbahce_beko", "fcbayern", "fcbayern_basketball"):

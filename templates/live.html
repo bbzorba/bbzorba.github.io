@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Live from my home lab 📡</h1>
+<p>
+    Real-time readings from my ESP32-C6 hub (Zephyr RTOS) with a Bosch BME688
+    sensor, and from an NXP i.MX 8M Plus board that reports to it. The hub
+    publishes every 10 seconds over MQTT; this page subscribes directly from
+    your browser.
+</p>
+<p class="live-status"><span id="dot" class="live-dot"></span> <span id="status">Connecting…</span></p>
+
+<div id="cards">
+    <section class="live-card">
+        <h3>🌡️ Room (BME688)</h3>
+        <div class="live-grid" id="env"></div>
+    </section>
+    <section class="live-card">
+        <h3>📶 Hub (ESP32-C6)</h3>
+        <div class="live-grid" id="hub"></div>
+    </section>
+    <div id="nodes"></div>
+</div>
+
+<p style="color:#888; font-size: 0.9rem; margin-top: 2rem;">
+    Source code:
+    <a href="https://github.com/bbzorba/ESP32C6-Zephyr-IoT-Projects" target="_blank">ESP32C6-Zephyr-IoT-Projects</a>,
+    <a href="https://github.com/bbzorba/NXP-imx8MPlus-applications" target="_blank">NXP-imx8MPlus-applications</a>
+</p>
+
+<style>
+.live-status { font-weight: 500; }
+.live-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #bbb; }
+.live-dot.on { background: #2e9e4f; }
+.live-dot.off { background: #c0392b; }
+.live-card { border: 1px solid #ddd; border-radius: 8px; padding: 16px 20px; margin: 16px 0; max-width: 900px; }
+.live-card h3 { margin-top: 0; }
+.live-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.live-k { color: #888; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.live-v { font-size: 1.4rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stale .live-v { color: #aaa; }
+</style>
+
+<script src="https://unpkg.com/mqtt@5.10.1/dist/mqtt.min.js"></script>
+<script>
+// Must match CONFIG_APP_MQTT_TOPIC_PREFIX in the hub firmware
+var BROKER = 'wss://broker.hivemq.com:8884/mqtt';
+var PREFIX = 'bbzorba/home-hub/v1';
+
+var hubOnline = null, lastMsg = 0;
+
+function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+}
+
+function tiles(items) {
+    return items.map(function (t) {
+        return '<div><div class="live-k">' + esc(t[0]) + '</div><div class="live-v">' + esc(t[1]) + '</div></div>';
+    }).join('');
+}
+
+function fixed(v, d) { return Number(v).toFixed(d); }
+
+function duration(s) {
+    if (s < 3600) return Math.floor(s / 60) + ' min';
+    if (s < 86400) return Math.floor(s / 3600) + ' h ' + Math.floor(s % 3600 / 60) + ' min';
+    return Math.floor(s / 86400) + ' d ' + Math.floor(s % 86400 / 3600) + ' h';
+}
+
+function render(state) {
+    var e = state.env, h = state.hub;
+    document.getElementById('env').innerHTML = e.ok ? tiles([
+        ['Temperature', fixed(e.temp_c, 1) + ' °C'],
+        ['Humidity', fixed(e.humidity, 1) + ' %'],
+        ['Pressure', fixed(e.pressure_hpa, 1) + ' hPa']
+    ]) : '<p>No sensor reading.</p>';
+    document.getElementById('hub').innerHTML = tiles([
+        ['Chip temperature', fixed(h.chip_temp_c, 1) + ' °C'],
+        ['CPU load', fixed(h.cpu_load_pct, 1) + ' %'],
+        ['Wi-Fi signal', h.rssi + ' dBm'],
+        ['Uptime', duration(h.uptime_s)]
+    ]);
+    document.getElementById('nodes').innerHTML = state.nodes.nodes.map(function (n) {
+        return '<section class="live-card' + (n.online ? '' : ' stale') + '"><h3>🖥️ ' + esc(n.model) +
+            (n.online ? '' : ' <small>(offline)</small>') + '</h3><div class="live-grid">' +
+            tiles(n.sensors.map(function (s) {
+                var v = Math.abs(s.value) >= 100 || Number.isInteger(s.value) ? fixed(s.value, 0) : fixed(s.value, 1);
+                return [s.name, v + (s.unit ? ' ' + s.unit : '')];
+            })) + '</div></section>';
+    }).join('');
+}
+
+function showStatus() {
+    var dot = document.getElementById('dot'), st = document.getElementById('status');
+    var age = lastMsg ? Math.round((Date.now() - lastMsg) / 1000) : null;
+    document.getElementById('cards').className = hubOnline === false ? 'stale' : '';
+    if (hubOnline === false) {
+        dot.className = 'live-dot off';
+        st.textContent = 'Hub is offline. Showing its last readings.';
+    } else if (age !== null && age < 30) {
+        dot.className = 'live-dot on';
+        st.textContent = 'Live · updated ' + (age < 2 ? 'just now' : age + ' s ago');
+    } else if (age !== null) {
+        dot.className = 'live-dot off';
+        st.textContent = 'No update for ' + age + ' s';
+    }
+}
+
+var client = mqtt.connect(BROKER, { clean: true, reconnectPeriod: 5000 });
+client.on('connect', function () {
+    document.getElementById('status').textContent = 'Connected, waiting for data…';
+    client.subscribe([PREFIX + '/state', PREFIX + '/status']);
+});
+client.on('message', function (topic, payload) {
+    if (topic === PREFIX + '/status') {
+        hubOnline = payload.toString() === 'online';
+    } else {
+        try {
+            render(JSON.parse(payload.toString()));
+            lastMsg = Date.now();
+        } catch (err) {
+            console.error('Bad message', err);
+        }
+    }
+    showStatus();
+});
+client.on('error', function () {
+    document.getElementById('status').textContent = 'Cannot reach the broker.';
+});
+setInterval(showStatus, 1000);
+</script>
+
+{% endblock %}
