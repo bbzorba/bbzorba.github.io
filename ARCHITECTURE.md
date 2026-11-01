@@ -1,10 +1,10 @@
 # Website architecture
 
 How [bbzorba.github.io](https://bbzorba.github.io) is built, deployed and
-fed with live data. Editing and preview instructions are in
+fed with live data. Editing, preview and adding content:
 [README.md](README.md).
 
-## The big picture
+## 1. What we built
 
 The site is fully static: GitHub Pages serves plain HTML, CSS and
 JavaScript, and there is no server of my own. Everything dynamic happens
@@ -50,7 +50,7 @@ flowchart LR
 | Contact | `/contact` | FormSubmit, in the browser |
 | Sports | `/sports/...` | templates |
 
-## Build and deploy
+## 2. Build and deploy
 
 ```mermaid
 sequenceDiagram
@@ -76,7 +76,7 @@ The daily run picks up new repositories. Any repository not listed in
 Asset URLs carry a build id (`style.css?v=...`) so browsers fetch fresh CSS
 after each deploy.
 
-## Live Lab: publish/subscribe
+## 3. Live Lab: publish/subscribe
 
 The page subscribes to the hub's MQTT topics straight from the browser
 (MQTT.js over secure WebSocket). Both topics are retained, so a visitor
@@ -106,13 +106,13 @@ sequenceDiagram
 
 The page renders `nodes[]` generically, one card per node with whatever
 sensors it reports. A new node added on the hub side (see the hub's
-[ARCHITECTURE.md](https://github.com/bbzorba/ESP32C6-Zephyr-IoT-Projects/blob/main/applications/web_app/ARCHITECTURE.md))
+[README.md](https://github.com/bbzorba/ESP32C6-Zephyr-IoT-Projects/blob/main/applications/web_app/README.md), §6)
 therefore shows up here without any website change.
 
 The topic prefix `bbzorba/home-hub/v1` must match `CONFIG_APP_MQTT_TOPIC_PREFIX`
 in the hub firmware.
 
-## Contact form
+## 4. Contact form
 
 ```mermaid
 sequenceDiagram
@@ -131,11 +131,15 @@ FormSubmit needs a one-time activation: the very first message sends a
 confirmation e-mail to the inbox, and messages are delivered after the
 link in it is clicked. A hidden `_honey` field filters simple spam bots.
 
-## Adding content
+## 5. Crucial points
 
-- **A page:** create `templates/<name>.html` extending `base.html`, add a
-  `render(...)` line in `build.py`, and a link in the `links` list in
-  `templates/base.html`.
-- **A board on the Hardware page:** add an entry to `data/hardware.json`.
-- **A project group or title:** edit `data/projects.json`.
-- **CV changes:** edit `data/cv_data.json`.
+- **No server of my own.** Everything dynamic runs at build time (GitHub
+  Actions) or in the visitor's browser, so there is nothing to keep alive
+  or patch.
+- **Projects page is only as fresh as the last build.** The daily cron
+  rebuild picks up new repositories.
+- **Live data depends on the public broker.** The topic prefix must match
+  the hub's `CONFIG_APP_MQTT_TOPIC_PREFIX`; anyone who knows it could
+  publish fake values (a private broker with a read-only user fixes that).
+- **The contact form needs FormSubmit's one-time activation**; until then,
+  and on any error, the page falls back to a mailto: link.
